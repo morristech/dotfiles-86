@@ -1,18 +1,23 @@
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export PROMPT='%m%~$ '
+export PROMPT=$'%{\e[0;34m%}%m%{\e[0;34m%}%~$ %{\e[0m%}'
 export SVN_EDITOR='mate -w'
+export GIT_EDITOR='mate -w'
 export EDITOR='mate -w'
 export LESSEDIT='mate -l %lm %f'
 
-# aliases
+# command aliases
 
 alias ss='ruby script/server'
 alias sc='ruby script/console'
+alias ls='ls -Gl'
+
+# project aliases
+
 alias kc='cd ~/Projects/kudocities/trunk'
-alias ta='cd ~/Projects/tomafro.net/trunk'
+alias jgp='cd ~/Projects/jgp/aspire/trunk'
 
 # history file
 
 setopt histignoredups
 
-source $HOME/.rake_completion.zsh
+# source $HOME/.rake_completion.zsh
