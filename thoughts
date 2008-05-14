@@ -1,0 +1,14 @@
+Greg,
+
+It was good meeting you yesterday, and hearing what your company does. Having had a little time to do some thinking and research, here are my updated thoughts on your project:
+
+First, contrary to what I said yesterday, hosting your own videos (in order to have greater control over access rights, etc) would not be that difficult.  I looked at a couple of other video hosts, and none of them really cater for private embedded videos, so rolling your own solution is probably the best course.  It will also allow you more control over the flash player used, potentially adding more features if the site becomes popular.  Developing an actual flash video player is trivially easy, as all the hard work is done by flash.  The only difficulty is in encoding the video in the first place, something I guess you can do in the editing process before it's uploaded (or there are other services you might be able to use)
+
+I also looked into standards used for geographical information mapping, and it seems to me that everything you require can be written as kml, the format used by Google Earth, Microsoft Live Earth and others.  I'd suggest ensuring all data collected by tagmap is exportable into kml.  This wouldn't be too much extra technical work, but would allow you to import your maps into programs like Google Earth, showing them alongside other data sources.  These could include 3D architectural models (if doing architectural consultation projects), local demographics, crime mapping, etc.  I'm sure the participants in your projects would enjoy flying around their own neighbourhoods (with links to all your videos and other collected info).
+
+Hope these thoughts are all helpful, whether I end up working with you or otherwise.
+
+
+
+
+
