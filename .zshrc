@@ -9,6 +9,7 @@ export LESSEDIT='mate -l %lm %f'
 
 alias ss='ruby script/server'
 alias sc='ruby script/console'
+alias db='ruby script/dbconsole'
 alias ls='ls -Gl'
 
 # project aliases
