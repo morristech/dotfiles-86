@@ -1,0 +1,12 @@
+[user]
+	name = Tom Ward
+	email = tom@popdog.net
+[core]
+	excludesfile = ~/.gitignore
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+[alias]
+	amend = commit --amend
