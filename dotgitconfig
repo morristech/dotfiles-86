@@ -2,7 +2,7 @@
 	name = Tom Ward
 	email = tom@popdog.net
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/tomw/.gitignore
 [color]
 	diff = auto
 	status = auto
