@@ -4,6 +4,7 @@ git_prompt_info() {
   ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
   echo "(%{$fg[yellow]%}git:${ref#refs/heads/}%{$fg[blue]%})"
 }
+
 autoload -U colors
 colors
 setopt prompt_subst
@@ -33,3 +34,16 @@ setopt histignoredups
 # source $HOME/.rake_completion.zsh
 
 cd ~/Projects
+
+bindkey '^H' backward-delete-char
+bindkey "^[[3~" delete-char
+
+case "$VENDOR" in
+	apple)
+		export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+		export SVN_EDITOR='mate -w'
+		export GIT_EDITOR='mate -w'
+		export EDITOR='mate -w'
+		export LESSEDIT='mate -l %lm %f'
+		;;
+esac
