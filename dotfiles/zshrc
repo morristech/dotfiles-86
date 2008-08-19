@@ -1,15 +1,18 @@
 git_diff_info() {
   ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
-  changes=$(git ls-files --exclude-per-directory=.gitignore --exclude-from=.git/info/exclude --others --modified -t)
+  changes=$(git status)
   count=$(echo -n $changes | wc -w | tr -d ' ')
   case $count in
-    0)
+    2)
     ;;;
 
     *)
       echo "%{$fg[red]%}*%{$fg[blue]%}"
+      return
     ;;;
   esac
+  
+  
 }
 
 git_prompt_info() {
