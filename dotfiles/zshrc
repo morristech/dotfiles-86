@@ -23,7 +23,7 @@ git_diff_info() {
 
 git_prompt_info() {
   ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
-  echo "(%{$fg[yellow]%}git:${ref#refs/heads/}%{$fg[blue]%}$(git_diff_info))"
+  echo "(%{$fg[yellow]%}${ref#refs/heads/}%{$fg[blue]%}$(git_diff_info))"
 }
 
 autoload -U colors
