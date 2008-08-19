@@ -1,13 +1,19 @@
 git_diff_info() {
   ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
   changes=$(git status)
-  count=$(echo -n $changes | wc -w | tr -d ' ')
-  case $count in
-    2)
-    ;;;
-
-    *)
+  case $changes in
+    *Untracked*)
       echo "%{$fg[red]%}*%{$fg[blue]%}"
+      return
+    ;;;
+    
+    *updated*)
+      echo "%{$fg[red]%}*%{$fg[blue]%}"
+      return
+    ;;;
+    
+    *committed*)
+      echo "%{$fg[green]%}*%{$fg[blue]%}"
       return
     ;;;
   esac
