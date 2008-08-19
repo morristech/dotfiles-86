@@ -7,6 +7,7 @@ git_prompt_info() {
 
 autoload -U colors
 colors
+
 setopt prompt_subst
 
 export PROMPT=$'%{$fg[blue]%}%m%{\e[0;34m%}%~$(git_prompt_info)$ %{\e[0m%}'
@@ -47,3 +48,5 @@ case "$VENDOR" in
 		export LESSEDIT='mate -l %lm %f'
 		;;
 esac
+
+setopt autocd
