@@ -1,6 +1,20 @@
+git_diff_info() {
+  ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
+  changes=$(git ls-files --exclude-per-directory=.gitignore --exclude-from=.git/info/exclude --others --modified -t)
+  count=$(echo $clean | wc -l | tr -d ' ')
+  case $count in
+    0)
+    ;;;
+
+    *)
+      echo "%{$fg[red]%}*%{$fg[blue]%}"
+    ;;;
+  esac
+}
+
 git_prompt_info() {
   ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
-  echo "(%{$fg[yellow]%}git:${ref#refs/heads/}%{$fg[blue]%})"
+  echo "(%{$fg[yellow]%}git:${ref#refs/heads/}%{$fg[blue]%}$(git_diff_info))"
 }
 
 autoload -U colors
@@ -33,13 +47,10 @@ cd ~/Projects
 bindkey '^H' backward-delete-char
 bindkey "^[[3~" delete-char
 
-os=`uname -a`
-
-case $os in
-  *Darwin*)
-    source ~/.houseshare/zsh/apple
-  ;;;
+case "$VENDOR" in
+	apple)
+		source ~/.houseshare/zsh/apple
+		;;
 esac
-
 
 setopt autocd
