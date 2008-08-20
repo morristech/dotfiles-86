@@ -18,7 +18,7 @@ git_diff_color() {
     ;;;
     
     *)
-      echo "%{$fg[white]%}"
+      echo "%{$fg[yellow]%}"
     ;;;
   esac
   
