@@ -1,5 +1,4 @@
 git_diff_color() {
-  ref=$(git-symbolic-ref HEAD 2> /dev/null) || return
   changes=$(git status)
   case $changes in
     *Untracked*)
@@ -39,7 +38,7 @@ export PROMPT=$'%{$fg[blue]%}%m%{\e[0;34m%}%~$(git_prompt_info)$ %{\e[0m%}'
 
 # command aliases
 
-alias ss='ruby script/server'
+alias ss='ruby script/server -u'
 alias sc='ruby script/console'
 alias db='ruby script/dbconsole'
 alias ls='ls -aGl'
