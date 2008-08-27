@@ -10,3 +10,5 @@ export LESSEDIT='mate -l %lm %f'
 alias ssh='/usr/bin/ssh -A'
 alias scp='/usr/bin/scp'
 alias sftp='/usr/bin/sftp'
+
+ulimit -n 4096
