@@ -36,13 +36,13 @@ setopt prompt_subst
 host_prompt_color() {
   case ${SSH_CLIENT} in 
     [0-9]*)
-      echo "$fg[red]"
+      echo "%{$fg[red]%}"
     ;;;
     
     *)
-      echo "$fg[blue]"
+      echo "%{$fg[blue]%}"
     ;;;
   esac
 }
 
-export PROMPT=$'$(host_prompt_color)%m%~$(git_prompt_info)$ $fg[white]'
+export PROMPT=$'$(host_prompt_color)%m%~$(git_prompt_info)$ %{$fg[white]%}'
