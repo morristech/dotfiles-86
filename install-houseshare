@@ -4,4 +4,4 @@ for found in ~/.houseshare/dotfiles/*; do
   ln -fs $found ~/.$found:t
 done
 
-ln -fs ssh/authorized_keys ~/.ssh/authorized_keys
+cp ssh/authorized_keys ~/.ssh/authorized_keys
