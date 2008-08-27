@@ -1,18 +1,12 @@
 source ~/.houseshare/zsh/aliases.zsh
 source ~/.houseshare/zsh/completion.zsh
 source ~/.houseshare/zsh/prompt.zsh
+source ~/.houseshare/zsh/misc.zsh
 
-# history file
-
-setopt histignoredups
-
-bindkey '^H' backward-delete-char
-bindkey "^[[3~" delete-char
+# Load vendor specific scripts
 
 case "$VENDOR" in
 	apple)
 		source ~/.houseshare/zsh/vendor/apple.zsh
 		;;
 esac
-
-setopt autocd
