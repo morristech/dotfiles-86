@@ -5,3 +5,8 @@ export SVN_EDITOR='mate -w'
 export GIT_EDITOR='mate -w'
 export EDITOR='mate -w'
 export LESSEDIT='mate -l %lm %f'
+
+# Use OS X version of SSH with agent forwarding
+alias ssh='/usr/bin/ssh -A'
+alias scp='/usr/bin/scp'
+alias sftp='/usr/bin/sftp'
