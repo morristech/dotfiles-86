@@ -10,3 +10,5 @@
 	interactive = auto
 [alias]
 	amend = commit --amend
+[gui]
+	recentrepo = /Users/tomw/Projects/tagmap

@@ -42,6 +42,7 @@ alias ss='ruby script/server -u'
 alias sc='ruby script/console'
 alias db='ruby script/dbconsole'
 alias ls='ls -aGl'
+alias p='cd ~/Projects; cd '
 
 # project aliases
 
@@ -53,8 +54,6 @@ alias jgp='cd ~/Projects/jgp/aspire/trunk'
 setopt histignoredups
 
 # source $HOME/.rake_completion.zsh
-
-cd ~/Projects
 
 bindkey '^H' backward-delete-char
 bindkey "^[[3~" delete-char
