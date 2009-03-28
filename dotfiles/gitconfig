@@ -10,5 +10,6 @@
 	interactive = auto
 [alias]
 	amend = commit --amend
+  squash = rebase --interactive
 [gui]
 	recentrepo = /Users/tomw/Projects/tagmap
