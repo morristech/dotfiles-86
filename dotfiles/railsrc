@@ -3,5 +3,6 @@ def sql(query)
 end
 
 projectrc = File.expand_path('config/.projectrc')
-load projectrc if File.exist?(projectrc)
-puts "Found and loaded .projectrc file"
+if File.exist?(projectrc)
+  load projectrc 
+end
