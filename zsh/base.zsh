@@ -14,6 +14,8 @@ source ~/.houseshare/zsh/completion.zsh
 source ~/.houseshare/zsh/prompt.zsh
 source ~/.houseshare/zsh/title.zsh
 source ~/.houseshare/zsh/misc.zsh
+source ~/.houseshare/zsh/history.zsh
+
 
 # Load vendor specific scripts
 
