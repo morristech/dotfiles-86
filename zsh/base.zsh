@@ -19,4 +19,4 @@ source ~/.houseshare/zsh/history.zsh
 
 # Load vendor specific scripts
 
-source ~/.houseshare/zsh/vendor/$UNIX_VARIANT.zsh
+source ~/.houseshare/zsh/variant/$UNIX_VARIANT.zsh
