@@ -13,5 +13,8 @@
   squash = rebase --interactive
   co = checkout
   aa = add -A
+  st = status
+  ps = push
+  pl = pull
 [gui]
 	recentrepo = /Users/tomw/Projects/tagmap
