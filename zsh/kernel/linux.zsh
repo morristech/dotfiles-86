@@ -1,1 +1,1 @@
-alias ls='ls -al --color'
+alias ls='ls -alh --color'

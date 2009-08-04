@@ -12,11 +12,11 @@ alias ssh='/usr/bin/ssh -A'
 alias scp='/usr/bin/scp'
 alias sftp='/usr/bin/sftp'
 
-alias ls='ls -aGl'
+alias ls='ls -ahGl'
 
 localhost() {
-  sudo dscl localhost -create /Local/Default/Hosts/$1.local IPAddress 127.0.0.1
-  echo "Added $1.local at address 127.0.0.1"
+  sudo dscl localhost -create /Local/Default/Hosts/$1 IPAddress 127.0.0.1
+  echo "Added $1 at address 127.0.0.1"
 }
 
 ulimit -n 4096
