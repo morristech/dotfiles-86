@@ -1,22 +1,20 @@
 system_name=`uname -a`
 
-
-
-source ~/.houseshare/zsh/aliases.zsh
-source ~/.houseshare/zsh/completion.zsh
-source ~/.houseshare/zsh/prompt.zsh
-source ~/.houseshare/zsh/title.zsh
-source ~/.houseshare/zsh/misc.zsh
-source ~/.houseshare/zsh/history.zsh
+source ~/.dotfiles/zsh/aliases.zsh
+source ~/.dotfiles/zsh/completion.zsh
+source ~/.dotfiles/zsh/prompt.zsh
+source ~/.dotfiles/zsh/title.zsh
+source ~/.dotfiles/zsh/misc.zsh
+source ~/.dotfiles/zsh/history.zsh
 
 
 # Load vendor specific scripts
 
 case $system_name in
   Darwin*)
-    source ~/.houseshare/zsh/kernel/darwin.zsh
+    source ~/.dotfiles/zsh/kernel/darwin.zsh
     ;;
   *)
-    source ~/.houseshare/zsh/kernel/linux.zsh
+    source ~/.dotfiles/zsh/kernel/linux.zsh
     ;;;
 esac
