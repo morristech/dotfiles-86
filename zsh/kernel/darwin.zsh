@@ -19,4 +19,9 @@ localhost() {
   echo "Added $1 at address 127.0.0.1"
 }
 
+tm() {
+  cd $1
+  mate .
+}
+
 ulimit -n 4096
