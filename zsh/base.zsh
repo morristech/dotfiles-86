@@ -7,6 +7,8 @@ source ~/.dotfiles/zsh/title.zsh
 source ~/.dotfiles/zsh/misc.zsh
 source ~/.dotfiles/zsh/history.zsh
 
+fpath=(~/.dotfiles/zsh/functions $fpath)
+autoload -U ~/.dotfiles/zsh/functions/*(:t)
 
 # Load vendor specific scripts
 
