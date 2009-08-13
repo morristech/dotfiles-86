@@ -14,14 +14,12 @@ alias sftp='/usr/bin/sftp'
 
 alias ls='ls -ahGl'
 
+fpath=(~/.dotfiles/zsh/osx/functions $fpath)
+autoload -U ~/.dotfiles/zsh/osx/functions/*(:t)
+
 localhost() {
   sudo dscl localhost -create /Local/Default/Hosts/$1 IPAddress 127.0.0.1
   echo "Added $1 at address 127.0.0.1"
-}
-
-tm() {
-  cd $1
-  mate .
 }
 
 ulimit -n 4096

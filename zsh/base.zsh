@@ -14,9 +14,9 @@ autoload -U ~/.dotfiles/zsh/functions/*(:t)
 
 case $system_name in
   Darwin*)
-    source ~/.dotfiles/zsh/kernel/darwin.zsh
+    source ~/.dotfiles/zsh/osx/osx.zsh
     ;;
   *)
-    source ~/.dotfiles/zsh/kernel/linux.zsh
+    source ~/.dotfiles/zsh/linux/linux.zsh
     ;;;
 esac
