@@ -10,6 +10,9 @@ source ~/.dotfiles/zsh/history.zsh
 fpath=(~/.dotfiles/zsh/functions $fpath)
 autoload -U ~/.dotfiles/zsh/functions/*(:t)
 
+setopt LOCAL_OPTIONS # allow functions to have local options
+setopt LOCAL_TRAPS # allow functions to have local traps
+
 # Load vendor specific scripts
 
 case $system_name in
