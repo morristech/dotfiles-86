@@ -1,6 +1,5 @@
 system_name=`uname -a`
 
-source ~/.dotfiles/zsh/aliases.zsh
 source ~/.dotfiles/zsh/completion.zsh
 source ~/.dotfiles/zsh/prompt.zsh
 source ~/.dotfiles/zsh/title.zsh
