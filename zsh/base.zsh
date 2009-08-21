@@ -1,12 +1,13 @@
 system_name=`uname -a`
 
+fpath=(~/.dotfiles/zsh/functions $fpath)
+
 source ~/.dotfiles/zsh/completion.zsh
 source ~/.dotfiles/zsh/prompt.zsh
 source ~/.dotfiles/zsh/title.zsh
 source ~/.dotfiles/zsh/misc.zsh
 source ~/.dotfiles/zsh/history.zsh
 
-fpath=(~/.dotfiles/zsh/functions $fpath)
 autoload -U ~/.dotfiles/zsh/functions/*(:t)
 
 alias ruby="ruby_or_irb"
