@@ -1,32 +1,32 @@
 #compdef gem
-
-_gem_commands () {
-  if [[ -z $gem_commands ]] ; then
-    gem_commands=$(gem help commands | grep '^    [a-z]' | cut -d " " -f 5)
-    
-    #typeset -a gem_commands
-    # gem_commands=($(gem help commands | grep '^    [a-z]' | cut -d " " -f 5))
-  fi
-  
-  typeset -a gem_command_array
-  gem_command_array=($(echo $gem_commands))
-  compadd $gem_command_array
-}
-
-_installed_gems () {
-  if [[ -z $installed_gems ]] ; then
-    installed_gems=($(gem list | grep '^[A-Za-z]' | cut -d " " -f 1))
-  fi
-  
-  typeset -a installed_gem_array
-  installed_gem_array=($(echo $installed_gems))
-  compadd $installed_gem_array
-}
-
-if (( CURRENT == 2 )); then
-  _gem_commands
-else
-  if [[ $words[2] == open || $words[2] == update || $words[2] == contents ]] ; then
-    _installed_gems
-  fi
-fi
+ 
+local curcontext="$curcontext" state line ret=1
+ 
+_arguments -C \
+  '(- 1 *)'{-h,--help}'[display help information]' \
+  '(- 1)--version[display version information]' \
+  '1: :->cmds' \
+  '*: :->args' && ret=0
+ 
+case $state in
+  cmds)
+    if (( ! $+_gem_cmds )) ; then
+      typeset -gH _gem_cmds
+      _gem_cmds=( $(gem help commands | grep '^    [a-z]' | cut -d " " -f 5) )
+    fi
+    compadd $_gem_cmds && ret=0
+  ;;
+  args)
+    case $line[1] in
+      (dependency|open|read|uninstall|unpack|update)
+        if (( ! $+_gem_installed )) ; then
+          typeset -gH _gem_installed
+          _gem_installed=( $(gem list | grep '^[A-Za-z]' | cut -d " " -f 1) )
+        fi
+        compadd $_gem_installed && ret=0
+      ;;
+    esac
+  ;;
+esac
+ 
+return ret
