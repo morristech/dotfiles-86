@@ -11,6 +11,7 @@
 [alias]
 	amend = commit --amend
   squash = rebase --interactive
+  unadd = reset HEAD
   co = checkout
   aa = add -A
   st = status
