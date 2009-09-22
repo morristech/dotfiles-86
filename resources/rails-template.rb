@@ -9,14 +9,19 @@ run "rm public/robots.txt"
 
 run "rm -rf test"
 
-gem "rspec", :lib => false, :version => ">= 1.2.2" 
-gem "rspec-rails", :lib => false, :version => ">= 1.2.2"
+gem "rspec", :lib => false, :version => ">= 1.2.8" 
+gem "rspec-rails", :lib => false, :version => ">= 1.2.7.1"
 gem 'notahat-machinist', :lib => false
 gem 'faker'
 gem 'fakeweb'
+gem 'ianwhite-pickle', :lib => false
+
+rake 'gems:install'
+rake 'gems:unpack'
 
 generate 'rspec'
 generate 'cucumber'
+generate 'pickle'
 
 # Setup gitignore file
 
@@ -38,8 +43,6 @@ END
 run "rm log/*"
 run 'find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitignore \;'
 
-rake 'gems:install'
-rake 'gems:unpack'
 
 file 'spec/blueprints.rb', %{
 require 'machinist/active_record'
@@ -73,5 +76,5 @@ run "curl http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js >
 
 git :init
 git :add => "."
-git :commit => "-a -m 'Initial commit after generation from template'"
+git :commit => "-a -m 'Initial commit after generation from 'http://github.com/tomafro/dotfiles/tree/master/resource/rails-template.rb'"
 
