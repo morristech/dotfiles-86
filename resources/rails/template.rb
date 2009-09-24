@@ -1,31 +1,66 @@
-# Delete unnecessary files
-run "rm README"
-run "rm doc/README_FOR_APP"
-run "rm public/index.html"
-run "rm public/favicon.ico"
-run "rm public/robots.txt"
+# Install testing gems
 
-# Remove test/unit, and add rspec + cucumber
+gem 'rspec', :env => 'test'
+gem 'rspec-rails', :lib => false, :env => 'test' 
+gem 'notahat-machinist', :lib => false, :env => 'test'
+gem 'faker', :env => 'test'
+gem 'fakeweb', :env => 'test'
+gem 'ianwhite-pickle', :env => 'test', :lib => false
 
-run "rm -rf test"
-
-gem "rspec", :lib => false, :version => ">= 1.2.8" 
-gem "rspec-rails", :lib => false, :version => ">= 1.2.7.1"
-gem 'notahat-machinist', :lib => false
-gem 'faker'
-gem 'fakeweb'
-gem 'ianwhite-pickle', :lib => false
-
-rake 'gems:install'
-rake 'gems:unpack'
+rake 'gems:install', :env => 'test'
+rake 'gems:unpack', :env => 'test'
 
 generate 'rspec'
 generate 'cucumber'
 generate 'pickle'
 
-# Setup gitignore file
+rake 'rails:freeze:edge' if yes?("Freeze to edge rails? (y/n)")
 
-file '.gitignore', <<-END
+file "spec/spec.opts", %{
+--colour
+--format nested
+}.strip
+
+file 'spec/blueprints.rb', %{
+require 'machinist/active_record'
+require File.expand_path(File.dirname(__FILE__) + "/blueprints/shams")
+
+Dir[File.expand_path(File.dirname(__FILE__)) + "/blueprints/*_blueprint.rb"].each do |blueprint|
+  require blueprint
+end
+}.strip
+
+file 'spec/blueprints/shams.rb', %{
+require 'faker'
+
+Sham.email { Faker::Internet.email }
+Sham.domain_name { Faker::Internet.domain_name }
+}.strip
+
+spec_helper = File.open("spec/spec_helper.rb").read
+file "spec/spec_helper.rb", spec_helper.gsub("Spec::Runner.configure do |config|", "require File.expand_path(File.dirname(__FILE__) + '/blueprints.rb')\n\nSpec::Runner.configure do |config|")
+
+cucumber_env = File.open("features/support/env.rb").read
+file "features/support/env.rb", cucumber_env.gsub("require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')", "require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')\nrequire File.expand_path(File.dirname(__FILE__) + '/../../spec/blueprints')")
+
+# remove prototype and scriptaculous, in favour of jquery
+
+run "rm -f public/javascripts/*"
+run "curl http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js > public/javascripts/jquery.1.3.2.min.js"
+run "curl http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js > public/javascripts/jquery-ui.1.7.2.min.js"
+
+# Remove unwanted files
+
+run "rm README"
+run "rm doc/README_FOR_APP"
+run "rm public/index.html"
+run "rm public/favicon.ico"
+run "rm public/robots.txt"
+run "rm -rf test"
+
+# Make git ignore things we don't like
+
+file '.gitignore', %{
 .DS_Store
 coverage/*
 log/*.log
@@ -37,44 +72,14 @@ doc/api
 doc/app
 config/database.yml
 END
-
-# Remove logs files and preserve empty directories
+}.strip
 
 run "rm log/*"
+
+# Preserve empty directories
+
 run 'find . \( -type d -empty \) -and \( -not -regex ./\.git.* \) -exec touch {}/.gitignore \;'
-
-
-file 'spec/blueprints.rb', %{
-require 'machinist/active_record'
-require File.expand_path(File.dirname(__FILE__) + "/blueprints/shams")
-
-Dir[File.expand_path(File.dirname(__FILE__)) + "/blueprints/*_blueprint.rb"].each do |blueprint|
-  require blueprint
-end
-}
-
-file 'spec/blueprints/shams.rb', %{
-require 'faker'
-
-Sham.email { Faker::Internet.email }
-Sham.hostname { Faker::Internet.domain_name }
-}
-
-spec_helper = File.open("spec/spec_helper.rb").read
-file "spec/spec_helper.rb", spec_helper.gsub("Spec::Runner.configure do |config|", "require File.expand_path(File.dirname(__FILE__) + '/blueprints.rb')\n\nSpec::Runner.configure do |config|")
-
-cucumber_env = File.open("features/support/env.rb").read
-file "features/support/env.rb", cucumber_env.gsub("require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')", "require File.expand_path(File.dirname(__FILE__) + '/../../config/environment')\nrequire File.expand_path(File.dirname(__FILE__) + '/../../spec/blueprints')")
-
-file "spec/spec.opts", %{--colour\n--format nested}
-
-# remove prototype and scriptaculous, and install jquery instead
-
-run "rm -f public/javascripts/*"
-run "curl http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js > public/javascripts/jquery.1.3.2.min.js"
-run "curl http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js > public/javascripts/jquery-ui.1.7.2.min.js"
 
 git :init
 git :add => "."
-git :commit => "-a -m 'Initial commit after generation from 'http://github.com/tomafro/dotfiles/tree/master/resource/rails-template.rb'"
-
+git :commit => %{-a -m "Initial commit after generation from 'http://github.com/tomafro/dotfiles/tree/master/resource/rails-template.rb"}
