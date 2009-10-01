@@ -75,6 +75,15 @@ END
 }.strip
 
 run "rm log/*"
+run "rm -rf vendor/gems/*/test"
+run "rm -rf vendor/gems/*/test"
+run "rm -rf vendor/plugins/*/test"
+run "rm -rf vendor/plugins/*/spec"
+run "rm -rf vendor/rails/*/test"
+run "rm -rf vendor/rails/railties/guides"
+run "rm -rf vendor/rails/ci"
+run "rm -rf vendor/rails/doc"
+
 
 # Preserve empty directories
 

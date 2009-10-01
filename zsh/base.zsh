@@ -18,6 +18,8 @@ alias rails="rails -m ~/.dotfiles/resources/rails-template.rb"
 setopt LOCAL_OPTIONS # allow functions to have local options
 setopt LOCAL_TRAPS # allow functions to have local traps
 
+setopt autopushd # Use pushd for all directory changing
+
 # Load vendor specific scripts
 
 case $system_name in
