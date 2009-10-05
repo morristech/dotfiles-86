@@ -12,11 +12,15 @@ source ~/.dotfiles/zsh/history.zsh
 
 autoload -U ~/.dotfiles/zsh/functions/*(:t)
 
+
+
 alias ruby="ruby_or_irb"
 alias rails="rails -m ~/.dotfiles/resources/rails-template.rb"
 
 setopt LOCAL_OPTIONS # allow functions to have local options
 setopt LOCAL_TRAPS # allow functions to have local traps
+
+cdpath=(~ ~/Projects/apps ~/Projects/tools ~/Projects/plugins ~/Projects/sites)
 
 setopt autopushd # Use pushd for all directory changing
 
