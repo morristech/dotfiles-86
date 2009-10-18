@@ -10,6 +10,8 @@ gem 'ianwhite-pickle', :env => 'test', :lib => false
 rake 'gems:install', :env => 'test'
 rake 'gems:unpack', :env => 'test'
 
+plugin 'formtastic', :git => 'git clone git://github.com/justinfrench/formtastic.git'
+
 generate 'rspec'
 generate 'cucumber'
 generate 'pickle'
@@ -83,7 +85,6 @@ run "rm -rf vendor/rails/*/test"
 run "rm -rf vendor/rails/railties/guides"
 run "rm -rf vendor/rails/ci"
 run "rm -rf vendor/rails/doc"
-
 
 # Preserve empty directories
 
