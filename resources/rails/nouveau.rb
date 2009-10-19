@@ -7,7 +7,8 @@ bundle_path "gems"
 source 'http://gemcutter.org'
 source 'http://gems.github.com'
 
-gem 'rails', '2.3.4'
+#gem 'rails', '2.3.5'
+gem 'erubis'
 gem 'will_paginate'
 gem 'formtastic'
 gem 'inherited_resources'
@@ -35,10 +36,11 @@ file "config/preinitializer.rb", %{
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "gems", "environment"))  
 }.strip
 
-environment "Bundler.require_env RAILS_ENV"
+append_file "config/environment.rb", "\nBundler.require_env RAILS_ENV"
 
 run 'gem bundle'
 
+plugin 'rails_xss', :git => 'git://github.com/NZKoz/rails_xss.git'
 plugin 'penknife-for-rails', :git => 'git://github.com/tomafro/penknife-for-rails.git'
 
 generate 'rspec'
@@ -81,7 +83,7 @@ file 'lib/tasks/cucumber.rake', %{
 # Last tested on cucumber 0.4.2
 cucumber_path = Dir[File.join(RAILS_ROOT, 'gems', 'gems', 'cucumber*')].first
 
-$LOAD_PATH.unshift(File.join(cucumber_path, "lib")
+$LOAD_PATH.unshift(File.join(cucumber_path, "lib"))
 
 unless ARGV.any? {|a| a =~ /^gems/}
 
