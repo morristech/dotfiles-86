@@ -23,28 +23,36 @@ disable_system_gems
 
 bundle_path 'gems'
 
-gem 'rails'
+gem 'rails', '#{Rails::VERSION::STRING}'
 gem 'ruby-debug', :except => 'production'
 }.strip
   
 append_file '.gitignore', %{
 gems/*
 !gems/cache
-!gems/bundler
-}.strip
+!gems/bundler}
 
-append_file '/config/preinitializer.rb', 'require File.expand_path(File.join(File.dirname(__FILE__), "..", "gems", "environment"))'
+append_file '/config/preinitializer.rb', %{
+require File.expand_path(File.join(File.dirname(__FILE__), "..", "gems", "environment"))
 
-gem_loading = %{
-# As we're using GemBundler, replace rails default gem loading with that from the bundler
-
-Rails::Initializer.module_eval do 
-  def load_gems
-    Bundler.require_env RAILS_ENV
+# Hijack rails initializer to load the bundler gem environment before loading the rails environment.
+class Rails::Boot
+  def run
+    load_initializer
+    hijack_initializer_to_require_bundler_env
+    Rails::Initializer.run(:set_load_path)
   end
-end  
-}.strip
-
-gsub_file 'config/environment.rb', 'Rails::Initializer.run do |config|', "#{gem_loading}\n\nRails::Initializer.run do |config|"
+ 
+  def hijack_initializer_to_require_bundler_env
+    Rails::Initializer.module_eval do
+      alias load_environment_without_bundler load_environment
+      
+      def load_environment
+        Bundler.require_env configuration.environment
+        load_environment_without_bundler
+      end
+    end
+  end
+end}
 
 run 'script/bundle'
