@@ -8,6 +8,8 @@ file 'script/bundle', %{
 #!/usr/bin/env ruby
 $LOAD_PATH.unshift File.expand_path(File.join(File.dirname(__FILE__), "..", "gems/bundler/lib"))
 require 'rubygems'
+require 'rubygems/command'
+require 'bundler'
 require 'bundler/commands/bundle_command'
 Gem::Commands::BundleCommand.new.invoke(*ARGV)
 }.strip
@@ -32,27 +34,23 @@ gems/*
 !gems/cache
 !gems/bundler}
 
+run 'script/bundle'
+
 append_file '/config/preinitializer.rb', %{
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "gems", "environment"))
+}
+
+gsub_file 'config/environment.rb', "require File.join(File.dirname(__FILE__), 'boot')", %{
+require File.join(File.dirname(__FILE__), 'boot')
 
 # Hijack rails initializer to load the bundler gem environment before loading the rails environment.
-class Rails::Boot
-  def run
-    load_initializer
-    hijack_initializer_to_require_bundler_env
-    Rails::Initializer.run(:set_load_path)
-  end
- 
-  def hijack_initializer_to_require_bundler_env
-    Rails::Initializer.module_eval do
-      alias load_environment_without_bundler load_environment
-      
-      def load_environment
-        Bundler.require_env configuration.environment
-        load_environment_without_bundler
-      end
-    end
-  end
-end}
 
-run 'script/bundle'
+Rails::Initializer.module_eval do
+  alias load_environment_without_bundler load_environment
+  
+  def load_environment
+    Bundler.require_env configuration.environment
+    load_environment_without_bundler
+  end
+end
+}
