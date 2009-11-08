@@ -1,6 +1,6 @@
 # OS X specific settings
 
-export PATH=~/usr/local/bin:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=~/.homebrew/bin:~/usr/local/bin:/opt/local/bin:/opt/local/sbin:$PATH
 export SVN_EDITOR='mate -w'
 export GIT_EDITOR='mate -wl1'
 export EDITOR='mate -w'
@@ -21,5 +21,11 @@ localhost() {
   sudo dscl localhost -create /Local/Default/Hosts/$1 IPAddress 127.0.0.1
   echo "Added $1 at address 127.0.0.1"
 }
+
+case $OSTYPE in
+  darwin10*)
+		export ARCHFLAGS="-arch x86_64"
+  ;;;
+esac
 
 ulimit -n 4096
