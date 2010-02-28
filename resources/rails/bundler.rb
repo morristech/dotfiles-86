@@ -7,6 +7,10 @@ group :development do
   gem 'ruby-debug'
 end
 }.strip
+
+append_file '/.gitignore', %{
+/.bundle
+}
   
 append_file '/config/preinitializer.rb', %{
 begin
