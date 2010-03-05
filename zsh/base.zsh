@@ -13,8 +13,9 @@ setopt LOCAL_OPTIONS # allow functions to have local options
 setopt LOCAL_TRAPS # allow functions to have local traps
 
 alias g='git'
+alias fr='freerange'
 
-cdpath=(~ ~/Projects/apps ~/Projects/tools ~/Projects/plugins ~/Projects/sites)
+cdpath=(~ ~/Projects/apps ~/Projects/tools ~/Projects/plugins ~/Projects/sites ~/Projects/freerange)
 
 setopt autopushd # Use pushd for all directory changing
 

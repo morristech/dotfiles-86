@@ -17,5 +17,6 @@
   st = status
   ps = push
   pl = pull
+  waa = "!sh -c 'git diff -- \"$@\" | git apply --cached --whitespace=fix; git checkout -- ${1-.} \"$@\"' -"
 [gui]
 	recentrepo = /Users/tomw/Projects/tagmap
