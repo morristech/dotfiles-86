@@ -12,6 +12,9 @@ alias ssh='/usr/bin/ssh -A'
 alias scp='/usr/bin/scp'
 alias sftp='/usr/bin/sftp'
 
+alias g='hub'
+alias git='hub'
+
 alias ls='ls -ahGl'
 
 fpath=(~/.dotfiles/zsh/osx/functions $fpath)

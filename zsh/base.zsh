@@ -12,12 +12,10 @@ autoload -U ~/.dotfiles/zsh/functions/*(:t)
 setopt LOCAL_OPTIONS # allow functions to have local options
 setopt LOCAL_TRAPS # allow functions to have local traps
 
-alias g='hub'
-alias git='hub'
 alias fr='freerange'
-alias s='hub status -sb'
-alias d='hub diff'
-alias c='hub diff --cached'
+alias s='git status -sb'
+alias d='git diff'
+alias c='git diff --cached'
 
 cdpath=(~ ~/Projects/apps ~/Projects/tools ~/Projects/plugins ~/Projects/sites ~/Projects/freerange /var/apps)
 
