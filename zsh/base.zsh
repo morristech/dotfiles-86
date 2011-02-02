@@ -19,7 +19,7 @@ alias s='hub status -sb'
 alias d='hub diff'
 alias c='hub diff --cached'
 
-cdpath=(~ ~/Projects/apps ~/Projects/tools ~/Projects/plugins ~/Projects/sites ~/Projects/freerange)
+cdpath=(~ ~/Projects/apps ~/Projects/tools ~/Projects/plugins ~/Projects/sites ~/Projects/freerange /var/apps)
 
 setopt autopushd # Use pushd for all directory changing
 
