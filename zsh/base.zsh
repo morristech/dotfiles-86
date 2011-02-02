@@ -12,8 +12,12 @@ autoload -U ~/.dotfiles/zsh/functions/*(:t)
 setopt LOCAL_OPTIONS # allow functions to have local options
 setopt LOCAL_TRAPS # allow functions to have local traps
 
-alias g='git'
+alias g='hub'
+alias git='hub'
 alias fr='freerange'
+alias s='hub status -sb'
+alias d='hub diff'
+alias c='hub diff --cached'
 
 cdpath=(~ ~/Projects/apps ~/Projects/tools ~/Projects/plugins ~/Projects/sites ~/Projects/freerange)
 
@@ -31,3 +35,5 @@ case $system_name in
 esac
 
 source ~/.dotfiles/zsh/completion.zsh
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

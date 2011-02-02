@@ -20,7 +20,7 @@ git_diff_color() {
 
 git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo "($(git_diff_color)${ref#refs/heads/}$(host_prompt_color))"
+  echo ":$(git_diff_color)${ref#refs/heads/}$(git_pair_info)$(host_prompt_color)"
 }
 
 autoload -U colors
@@ -42,5 +42,15 @@ host_prompt_color() {
     ;;;
   esac
 }
+
+git_pair_info() {
+  pair=$(git config pair.initials) || return
+  case ${pair} in
+    [a-z]*)
+      echo "‣${pair}"
+    ;;;
+  esac
+}
+
 
 export PROMPT=$'$(host_prompt_color)%n@%m:%~$(git_prompt_info)$ %{$fg[white]%}'
