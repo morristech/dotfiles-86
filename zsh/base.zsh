@@ -17,7 +17,10 @@ alias s='git status -sb'
 alias d='git diff'
 alias c='git diff --cached'
 
-cdpath=(~ ~/Projects/apps ~/Projects/tools ~/Projects/plugins ~/Projects/sites ~/Projects/freerange /var/apps)
+alias bi='bundle install --path .bundle/gems --binstubs .bundle/bin --standalone'
+alias bu='bundle update'
+
+cdpath=(~ ~/Projects/clients/gov.uk ~/Projects/apps ~/Projects/personal ~/Projects/plugins ~/Projects/sites ~/Projects/freerange /var/apps)
 
 setopt autopushd # Use pushd for all directory changing
 
@@ -34,4 +37,9 @@ esac
 
 source ~/.dotfiles/zsh/completion.zsh
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+if [[ -d $HOME/.rbenv ]]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  export PATH="$HOME/.rbenv/shims:$PATH"
+fi
+
+export PATH="./.bundle/bin:$PATH"

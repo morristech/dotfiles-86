@@ -1,9 +1,9 @@
 # OS X specific settings
 
-export PATH=~/.homebrew/bin:~/usr/local/bin:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 export SVN_EDITOR='mate -w'
 export GIT_EDITOR='mate -wl1'
-export EDITOR='mate'
+export EDITOR='mate -w'
 export GEM_OPEN_EDITOR='mate'
 export LESSEDIT='mate -l %lm %f'
 
@@ -11,6 +11,7 @@ export LESSEDIT='mate -l %lm %f'
 alias ssh='/usr/bin/ssh -A'
 alias scp='/usr/bin/scp'
 alias sftp='/usr/bin/sftp'
+alias vim='mvim -v'
 
 alias g='hub'
 alias git='hub'

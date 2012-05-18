@@ -1,0 +1,2 @@
+rsync -vuaz --delete --rsh=ssh /Users/tomw/.dotfiles $1:/home/tomw
+ssh $1 '/home/tomw/.dotfiles/install'

@@ -52,5 +52,8 @@ git_pair_info() {
   esac
 }
 
-
-export PROMPT=$'$(host_prompt_color)%n@%m:%~$(git_prompt_info)$ %{$fg[white]%}'
+if [[ -z $FACTER_govuk_class ]]; then
+  export PROMPT=$'$(host_prompt_color)%n@%m:%~$(git_prompt_info)$ %{$fg[white]%}';
+else
+  export PROMPT=$'$(host_prompt_color)%n@$FACTER_govuk_class($FACTER_govuk_platform):%~$(git_prompt_info)$ %{$fg[white]%}';
+fi
