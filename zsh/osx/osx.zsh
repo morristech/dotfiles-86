@@ -1,10 +1,9 @@
 # OS X specific settings
 
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
-export SVN_EDITOR='mate -w'
-export GIT_EDITOR='mate -wl1'
-export EDITOR='mate -w'
-export GEM_OPEN_EDITOR='mate'
+export GIT_EDITOR='subl --wait --new-window'
+export EDITOR='subl --wait'
+export GEM_OPEN_EDITOR='subl'
 export LESSEDIT='mate -l %lm %f'
 
 # Use OS X version of SSH with agent forwarding
