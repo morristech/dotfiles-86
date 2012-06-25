@@ -17,7 +17,7 @@ alias s='git status -sb'
 alias d='git diff'
 alias c='git diff --cached'
 
-alias bi='bundle install --path .bundle/gems --binstubs .bundle/bin --standalone'
+alias bi='bundle install --path .bundle/gems --binstubs .bundle/bin'
 alias bu='bundle update'
 
 cdpath=(~ ~/Projects/clients/gov.uk ~/Projects/apps ~/Projects/personal ~/Projects/plugins ~/Projects/sites ~/Projects/freerange /var/apps)
