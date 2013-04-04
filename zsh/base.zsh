@@ -12,10 +12,16 @@ autoload -U ~/.dotfiles/zsh/functions/*(:t)
 setopt LOCAL_OPTIONS # allow functions to have local options
 setopt LOCAL_TRAPS # allow functions to have local traps
 
+# Report the time taken for any commands that take longer than 10 seconds
+REPORTTIME=10
+
+unsetopt beep # No beeps!
+
 alias fr='freerange'
 alias s='git status -sb'
 alias d='git diff'
 alias c='git diff --cached'
+alias t='bundle install && rake db:migrate && rake'
 
 alias bi='bundle install --path .bundle/gems --binstubs .bundle/bin'
 alias bu='bundle update'
