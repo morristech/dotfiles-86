@@ -2,6 +2,10 @@ if [[ -a script/server ]]; then
   ruby script/server $*
 elif [[ -a script/rails ]]; then
   ruby script/rails server $*
+elif [[ -a bin/rails ]]; then
+  bin/rails server $*
+elif [[ -a config.ru ]]; then
+  rackup $*
 else
-  echo "Neither ./script/rails nor ./script/console found. Maybe this isn't a rails project?"
+  echo "None of bin/rails, script/rails, script/server or config.ru found. Maybe this isn't a rack or rails project?"
 fi
