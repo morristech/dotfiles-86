@@ -20,6 +20,10 @@ alias ls='ls -ahGl'
 fpath=(~/.dotfiles/zsh/osx/functions $fpath)
 autoload -U ~/.dotfiles/zsh/osx/functions/*(:t)
 
+fpath=(/usr/local/share/zsh/site-functions $fpath)
+autoload -U /usr/local/share/zsh/site-functions/*(:t)
+
+
 localhost() {
   sudo dscl localhost -create /Local/Default/Hosts/$1 IPAddress 127.0.0.1
   echo "Added $1 at address 127.0.0.1"
