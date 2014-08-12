@@ -25,6 +25,7 @@ alias bi='bundle install --path .bundle/gems --binstubs .bundle/bin'
 alias bu='bundle update'
 
 cdpath=(~ ~/Projects/clients/gov.uk ~/Projects/apps ~/Projects/personal ~/Projects/plugins ~/Projects/sites ~/Projects/freerange /var/apps)
+alias 37='~/.37/bin/37'
 
 setopt autopushd # Use pushd for all directory changing
 
