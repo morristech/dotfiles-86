@@ -20,7 +20,6 @@ unsetopt beep # No beeps!
 alias s='git status -sb'
 alias d='git diff'
 alias c='git diff --cached'
-alias t='bundle install && rake db:migrate && rake'
 
 alias bi='bundle install --path .bundle/gems --binstubs .bundle/bin'
 alias bu='bundle update'
