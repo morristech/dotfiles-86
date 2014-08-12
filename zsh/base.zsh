@@ -21,8 +21,7 @@ alias s='git status -sb'
 alias d='git diff'
 alias c='git diff --cached'
 
-alias bi='bundle install --path .bundle/gems --binstubs .bundle/bin'
-alias bu='bundle update'
+alias bi='bundle install'
 
 alias 37='~/.37/bin/37'
 
