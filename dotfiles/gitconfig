@@ -13,3 +13,5 @@
   co = checkout
   aa = add -A
   st = status
+[push]
+	default = simple
