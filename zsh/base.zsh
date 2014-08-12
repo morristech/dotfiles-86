@@ -17,7 +17,6 @@ REPORTTIME=10
 
 unsetopt beep # No beeps!
 
-alias fr='freerange'
 alias s='git status -sb'
 alias d='git diff'
 alias c='git diff --cached'
