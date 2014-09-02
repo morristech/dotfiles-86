@@ -12,8 +12,11 @@ alias scp='/usr/bin/scp'
 alias sftp='/usr/bin/sftp'
 alias vim='mvim -v'
 
-alias g='hub'
-alias git='hub'
+if which hub &> /dev/null
+then
+  alias git='hub'
+fi
+
 
 alias ls='ls -ahGl'
 
