@@ -2,8 +2,8 @@
 
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 export GIT_EDITOR='subl --wait --new-window'
+export BUNDLER_EDITOR='subl'
 export EDITOR='subl --wait'
-export GEM_OPEN_EDITOR='subl'
 export LESSEDIT='mate -l %lm %f'
 
 # Use OS X version of SSH with agent forwarding
@@ -16,7 +16,6 @@ if which hub &> /dev/null
 then
   alias git='hub'
 fi
-
 
 alias ls='ls -ahGl'
 
