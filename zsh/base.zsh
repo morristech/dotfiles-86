@@ -47,4 +47,4 @@ if [[ -d $HOME/.rbenv ]]; then
   export PATH="$HOME/.rbenv/shims:$PATH"
 fi
 
-export PATH="./.bundle/bin:$PATH"
+export PATH="./.bundle/../bin:./.bundle/bin:$PATH"
