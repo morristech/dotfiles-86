@@ -38,3 +38,5 @@ case $OSTYPE in
 esac
 
 ulimit -n 4096
+
+export DOCKER_HOST=tcp://localhost:2375
