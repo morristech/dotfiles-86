@@ -14,4 +14,4 @@
   aa = add -A
   st = status
 [push]
-	default = simple
+	default = current
