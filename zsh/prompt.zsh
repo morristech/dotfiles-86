@@ -51,3 +51,5 @@ git_pair_info() {
     ;;;
   esac
 }
+
+export PROMPT=$'$(host_prompt_color)%n@%m:%~$(git_prompt_info)$ %{$fg[white]%}';
