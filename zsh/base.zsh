@@ -17,9 +17,11 @@ REPORTTIME=10
 
 unsetopt beep # No beeps!
 
+alias a='git add '
+alias aa='git add -A && git status -sb'
 alias s='git status -sb'
-alias d='git diff'
-alias c='git diff --cached'
+alias d='git diff --word-diff --color-words'
+alias c='git diff --cached --word-diff --color-words'
 
 alias bi='bundle install'
 

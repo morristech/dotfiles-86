@@ -15,3 +15,5 @@
   st = status
 [push]
 	default = current
+[diff]
+	wordregex = [[:alnum:]]+|[^[:space:]]
