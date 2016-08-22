@@ -31,6 +31,18 @@ setopt prompt_subst
 # If we're running in an ssh session, use a different colour
 # than if we're on a local machine
 
+host_info() {
+  case ${SSH_CLIENT} in
+    [0-9]*)
+      echo "$(host_prompt_color)%n@%m:"
+    ;;;
+
+    *)
+      echo "$(host_prompt_color)"
+    ;;;
+  esac
+}
+
 host_prompt_color() {
   case ${SSH_CLIENT} in
     [0-9]*)
@@ -52,4 +64,7 @@ git_pair_info() {
   esac
 }
 
-export PROMPT=$'$(host_prompt_color)%n@%m:%~$(git_prompt_info)$ %{$fg[white]%}';
+# export PROMPT=$'$(host_info)%~$(git_prompt_info) ❯ %{$fg[white]%}';
+
+export PROMPT=$'$(host_prompt_color)❯ %{$fg[white]%}';
+

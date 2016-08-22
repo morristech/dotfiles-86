@@ -4,5 +4,6 @@ end
 
 projectrc = File.expand_path('config/.projectrc')
 if File.exist?(projectrc)
-  load projectrc 
+  puts "Loading #{projectrc}"
+  load projectrc
 end

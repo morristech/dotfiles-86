@@ -7,3 +7,4 @@ XX106-5TY6
 /.tags_sorted_by_file
 /*.sublime*
 /.sync
+/dotfiles/bundle/cache/compact_index/*

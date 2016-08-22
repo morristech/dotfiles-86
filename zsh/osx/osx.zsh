@@ -37,6 +37,10 @@ case $OSTYPE in
   ;;;
 esac
 
-ulimit -n 4096
 
-export DOCKER_HOST=tcp://localhost:2375
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOPATH=~/Warmdot/go
+export PATH=$PATH:$GOPATH/bin
+
+
+ulimit -n 4096

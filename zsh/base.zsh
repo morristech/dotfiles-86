@@ -27,7 +27,7 @@ alias bi='bundle install'
 
 alias 37='~/.37/bin/37'
 
-cdpath=(~/37s/apps ~/Projects)
+cdpath=(~/37s/apps ~/37s/tools ~/Warmdot ~/Projects)
 
 setopt autopushd # Use pushd for all directory changing
 
