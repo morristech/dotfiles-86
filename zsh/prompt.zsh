@@ -45,7 +45,7 @@ host_info() {
 
 host_prompt_color() {
   case ${SSH_CLIENT} in
-    [0-9]*)
+    [a-f0-9]*)
       echo "%{$fg[yellow]%}"
     ;;;
 
