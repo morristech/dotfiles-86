@@ -1,7 +1,7 @@
 # OS X specific settings
 
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
-export GIT_EDITOR='subl --wait --new-window'
+export GIT_EDITOR='code --wait --new-window'
 export BUNDLER_EDITOR='subl'
 export EDITOR='subl --wait'
 export LESSEDIT='mate -l %lm %f'
@@ -44,3 +44,5 @@ export PATH=$PATH:$GOPATH/bin
 
 
 ulimit -n 4096
+
+eval "$(work init -)"
