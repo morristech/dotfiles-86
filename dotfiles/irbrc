@@ -14,5 +14,16 @@ class Object
   end
 end
 
-railsrc = "~/.railsrc"
-load railsrc if $0 == 'irb' && ENV['RAILS_ENV']
+def stopwatch(times = 1, &block)
+  start = Time.now
+  times.times { yield }
+  finish = Time.now - start
+
+  if times == 1
+    puts "Took #{finish} to complete once"
+  else
+    puts "Took #{finish} to complete #{times} times"
+  end
+end
+
+load "~/.railsrc" if defined?(Rails)
