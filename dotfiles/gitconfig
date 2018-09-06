@@ -17,3 +17,7 @@
 	default = current
 [diff]
 	wordregex = [[:alnum:]]+|[^[:space:]]
+[credential]
+	helper = cache
+[rebase]
+	autostash = true

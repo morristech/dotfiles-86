@@ -17,8 +17,6 @@ REPORTTIME=10
 
 unsetopt beep # No beeps!
 
-alias a='git add '
-alias aa='git add -A && git status -sb'
 alias s='git status -sb'
 alias d='git diff --word-diff --color-words'
 alias c='git diff --cached --word-diff --color-words'
@@ -26,8 +24,10 @@ alias c='git diff --cached --word-diff --color-words'
 alias bi='bundle install'
 
 alias 37='~/.37/bin/37'
+alias fl='flashlight'
+alias flt='flashlight --tail'
 
-cdpath=(~/37s/apps ~/37s/tools ~/Warmdot ~/Projects)
+cdpath=(~/Work/basecamp ~/Work/tomafro ~/37s/apps ~/37s/tools ~/Warmdot ~/Projects)
 
 setopt autopushd # Use pushd for all directory changing
 

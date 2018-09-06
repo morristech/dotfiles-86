@@ -2,7 +2,7 @@
 
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 export GIT_EDITOR='code --wait --new-window'
-export BUNDLER_EDITOR='subl'
+export BUNDLER_EDITOR='code -a'
 export EDITOR='subl --wait'
 export LESSEDIT='mate -l %lm %f'
 
