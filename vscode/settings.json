@@ -63,7 +63,7 @@
           "punctuation"
         ],
         "settings": {
-          "foreground": "#fff"
+          "foreground": "#ffffff"
         }
       },
       {
@@ -84,25 +84,28 @@
           "support.type.property-name.json"
         ],
         "settings": {
-          "foreground": "#c1ffc1"
+          "foreground": "#f8d2a1"
         }
       },
       {
         "scope": [
           "constant",
           "constant.numeric",
+          "constant.language",
           "punctuation.definition.constant"
         ],
         "settings": {
-          "foreground": "#ffcf99"
+          "foreground": "#afe0da"
         }
       },
       {
         "scope": [
-          "keyword"
+          "keyword",
+          "keyword.control",
+          "storage.modifier"
         ],
         "settings": {
-          "foreground": "#b6d2fd"
+          "foreground": "#afe0da"
         }
       }
     ]
@@ -150,5 +153,9 @@
   "gitlens.advanced.messages": {
     "suppressShowKeyBindingsNotice": true
   },
-  "window.restoreWindows": "none"
+  "window.restoreWindows": "none",
+  "workbench.colorTheme": "Visual Studio Dark",
+  "files.associations": {
+    "Brewfile": "ruby"
+  }
 }
