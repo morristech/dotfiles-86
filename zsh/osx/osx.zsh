@@ -37,12 +37,9 @@ case $OSTYPE in
   ;;;
 esac
 
-
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export GOPATH=~/Work/go
 export PATH=$PATH:$GOPATH/bin
-
-export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 
 ulimit -n 4096
 

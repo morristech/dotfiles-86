@@ -6,77 +6,132 @@ brewfile() {
   brew bundle --file=$1 --noupdate | indent
 }
 
-echo "🍺 homebrew"
+link_dotfiles() {
+  echo "🔗 Linking dotfiles"
 
-if ! which brew > /dev/null 2>&1; then
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  brew tap Homebrew/bundle
-fi
+  for found in ~/.dotfiles/dotfiles/*; do
+    if [[ ! -a $HOME/.$found:t ]]; then
+      ln -fs $found $HOME/.$found:t
+    fi
+  done
+}
 
-brewfile Brewfile
+write_defaults() {
+  echo "🍏 Setting OS X defaults"
 
-echo "🔗 Linking dotfiles"
+  defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add "Zoom" "@^z"
 
-for found in ~/.dotfiles/dotfiles/*; do
-  if [[ ! -a $HOME/.$found:t ]]; then
-    ln -fs $found $HOME/.$found:t
+  defaults write com.apple.dock 'orientation' -string 'left'
+  defaults write com.apple.dock 'autohide' -int 1
+  defaults write com.apple.dock 'show-recents' -int 0
+  defaults write com.apple.dock 'tilesize' -int 45
+
+  killall Dock
+
+  # Enable the Develop menu and the Web Inspector in Safari
+  defaults write com.apple.Safari IncludeDevelopMenu -bool true
+  defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+  defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+
+  # Add a context menu item for showing the Web Inspector in web views
+  defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+  # Require password immediately after sleep or screen saver begins
+  defaults write com.apple.screensaver askForPassword -int 1
+  defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+  # Only use UTF-8 in Terminal.app
+  defaults write com.apple.terminal StringEncodings -array 4
+}
+
+install_brewfile() {
+  echo "🍺 Installing Brewfile bundle"
+
+  if ! which brew > /dev/null 2>&1; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew tap Homebrew/bundle
   fi
-done
 
-echo "🍏 Setting OS X defaults"
+  brewfile Brewfile
+}
 
-defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add "Zoom" "@^z"
+install_rust() {
+  if [ ! -f ~/.cargo/bin/rustup ]; then
+    echo "🔧 Installing rust"
+    echo
+    curl https://sh.rustup.rs -sSf > /tmp/rust-install
+    chmod +x /tmp/rust-install
+    /tmp/rust-install -y 2>&1 | indent
+    echo
+  else
+    echo "🔧 Rust already installed"
+  fi
+}
 
-defaults write com.apple.dock 'orientation' -string 'left'
-defaults write com.apple.dock 'autohide' -int 1
-defaults write com.apple.dock 'show-recents' -int 0
-defaults write com.apple.dock 'tilesize' -int 45
+setup_rbenv() {
+  echo "💎 Setting up rbenv"
+  latestRuby="2.5.1"
 
-killall Dock
+  mkdir -p ~/.rbenv
+  echo "bundler\npuma" > ~/.rbenv/default-gems
+  rbenv install $latestRuby --skip-existing
+  rbenv global $latestRuby
+}
 
-if [ ! -f ~/.cargo/bin/rustup ]; then
-  echo "🔧 Installing rust"
-  echo
-  curl https://sh.rustup.rs -sSf > /tmp/rust-install
-  chmod +x /tmp/rust-install
-  /tmp/rust-install -y 2>&1 | indent
-  echo
-else
-  echo "🔧 Rust already installed"
-fi
+setup_puma_dev() {
+  if ! pgrep 'puma-dev' > /dev/null 2>&1; then
+    echo "🐱 Setting up puma-dev"
 
-echo "💎 Setting up rbenv"
+    sudo puma-dev -setup
+    puma-dev -install
+  else
+    echo "🐱 Puma-dev already running"
+  fi
+}
 
-mkdir -p ~/.rbenv
-echo "bundler\npuma" > ~/.rbenv/default-gems
+install_vscode_extension() {
+  code --install-extension $1 2>&1 | indent
+}
 
-if ! pgrep 'puma-dev' > /dev/null 2>&1; then
-  echo "🐱 Setting up puma-dev"
+setup_vscode() {
+  echo "💻 Setting up VS Code"
 
-  sudo puma-dev -setup
-  puma-dev -install
-else
-  echo "🐱 Puma-dev already running"
-fi
+  for found in ~/.dotfiles/vscode/*; do
+    rm -f "$HOME/Library/Application Support/Code/User/$found:t"
+    ln -fs $found "$HOME/Library/Application Support/Code/User/$found:t"
+  done
 
-echo "💻 Setting up VS Code"
+  # Can list extensions with code --list-extensions
 
-for found in ~/.dotfiles/vscode/*; do
-  rm -f "$HOME/Library/Application Support/Code/User/$found:t"
-  ln -fs $found "$HOME/Library/Application Support/Code/User/$found:t"
-done
+  install_vscode_extension anseki.vscode-color
+  install_vscode_extension bungcip.better-toml
+  install_vscode_extension eamodio.gitlens
+  install_vscode_extension file-icons.file-icons
+  install_vscode_extension ms-vscode.Go
+  install_vscode_extension msjsdiag.debugger-for-chrome
+  install_vscode_extension rust-lang.rust
+  install_vscode_extension sleistner.vscode-fileutils
+  install_vscode_extension streetsidesoftware.code-spell-checker
+}
 
-# Can list extensions with code --list-extensions
+install_shipshape() {
+  echo "🚢 Installing shipshape"
+  shipshapePath=$HOME/37s/ops/shipshape
+  if [ ! -d $shipshapePath ]; then
+    mkdir -p $shipshapePath
+    git clone git@github.com:basecamp/shipshape $shipshapePath
+    ln -s $shipshapePath/bin/shipshape /usr/local/bin/shipshape
+    shipshape install
+  fi
 
-code --install-extension anseki.vscode-color
-code --install-extension bungcip.better-toml
-code --install-extension eamodio.gitlens
-code --install-extension file-icons.file-icons
-code --install-extension ms-vscode.Go
-code --install-extension msjsdiag.debugger-for-chrome
-code --install-extension rust-lang.rust
-code --install-extension sleistner.vscode-fileutils
-code --install-extension streetsidesoftware.code-spell-checker
+  shipshape
+}
 
-# mkdir -p ~/.ssh
-# ln -fs ~/.dotfiles/ssh/authorized_keys ~/.ssh/authorized_keys
+link_dotfiles
+write_defaults
+install_brewfile
+install_rust
+setup_rbenv
+setup_puma_dev
+setup_vscode
+install_shipshape

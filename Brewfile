@@ -31,6 +31,7 @@ cask "encryptme"
 cask "docker"
 cask "snagit"
 cask "dropbox"
+cask "viscosity"
 
 tap "homebrew/cask-fonts"
 
