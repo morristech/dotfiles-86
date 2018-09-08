@@ -47,7 +47,7 @@ write_defaults() {
 install_brewfile() {
   echo "🍺 Installing Brewfile bundle"
 
-  if ! which brew > /dev/null 2>&1; then
+  if test ! $(which brew); then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew tap Homebrew/bundle
   fi
@@ -65,6 +65,16 @@ install_rust() {
     echo
   else
     echo "🔧 Rust already installed"
+  fi
+}
+
+setup_shell() {
+  echo "🦐 Setup shell"
+  shell="/usr/local/bin/zsh"
+
+  if [[ ! $SHELL = $shell ]]; then
+    sudo bash -c 'echo $shell >> /etc/shells'
+    chsh -s $shell
   fi
 }
 
@@ -127,11 +137,20 @@ install_shipshape() {
   shipshape
 }
 
+# sudo -v
+
+# # Keep-alive: update existing `sudo` time stamp until script has finished
+# while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# sudo softwareupdate -iva
+# xcode-select --install
+
 link_dotfiles
 write_defaults
 install_brewfile
-install_rust
+setup_shell
 setup_rbenv
 setup_puma_dev
 setup_vscode
 install_shipshape
+install_rust
