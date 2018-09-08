@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+for found in ~/.dotfiles/dotfiles/*; do
+  if [[ ! -a $HOME/.$found:t ]]; then
+    ln -fs $found $HOME/.$found:t
+  fi
+done

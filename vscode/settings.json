@@ -1,0 +1,154 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.bundle": true,
+    "**/node_modules": true,
+    "**/tmp": true,
+    "**/log": true,
+    "public/assets/**": true
+  },
+  "search.exclude": {
+    "**/bower_components": true,
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.bundle": true,
+    "**/node_modules": true,
+    "**/tmp": true,
+    "**/log": true,
+    "public/assets/**": true,
+    "dummy/path/to/test/**": true
+  },
+  "editor.fontSize": 15,
+  "editor.fontFamily": "Monaco",
+  "editor.cursorStyle": "line",
+  "editor.lineNumbers": "off",
+  "editor.tabSize": 2,
+  "editor.useTabStops": true,
+  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.fontFamily": "Monaco",
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#002231",
+    "titleBar.activeForeground": "#ffffff",
+    "activityBar.background": "#002231",
+    "statusBar.background": "#002231",
+    "editor.foreground": "#ffffff",
+    "editor.background": "#00131b",
+    "sideBar.background": "#00131b",
+    "sideBar.border": "#001b27",
+    "sideBarSectionHeader.background": "#00131b",
+    "list.activeSelectionBackground": "#002231",
+    "list.inactiveSelectionBackground": "#002231",
+    "tab.activeBackground": "#00131b",
+    "tab.inactiveBackground": "#002231",
+    "editorGroup.border": "#001b27",
+    "editor.lineHighlightBackground": "#001b27",
+    "activityBarBadge.background": "#a33",
+    "sideBarTitle.foreground": "#bbbbbb",
+    "input.foreground": "#ffffff",
+    "input.background": "#001b27",
+    "input.placeholderForeground": "#aabbcc"
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "entity.name",
+          "punctuation"
+        ],
+        "settings": {
+          "foreground": "#fff"
+        }
+      },
+      {
+        "scope": [
+          "comment",
+          "punctuation.definition.comment"
+        ],
+        "settings": {
+          "foreground": "#aaaaaa"
+        }
+      },
+      {
+        "scope": [
+          "string",
+          "punctuation.definition.string.begin",
+          "punctuation.definition.string.end",
+          "punctuation.support.type.property-name",
+          "support.type.property-name.json"
+        ],
+        "settings": {
+          "foreground": "#c1ffc1"
+        }
+      },
+      {
+        "scope": [
+          "constant",
+          "constant.numeric",
+          "punctuation.definition.constant"
+        ],
+        "settings": {
+          "foreground": "#ffcf99"
+        }
+      },
+      {
+        "scope": [
+          "keyword"
+        ],
+        "settings": {
+          "foreground": "#b6d2fd"
+        }
+      }
+    ]
+  },
+  "files.trimTrailingWhitespace": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.snippetSuggestions": "top",
+  "editor.formatOnPaste": true,
+  "explorer.confirmDragAndDrop": false,
+  "window.zoomLevel": 0,
+  "[rust]": {
+    "editor.tabSize": 2
+  },
+  "workbench.statusBar.feedback.visible": false,
+  "cSpell.language": "en,en-GB",
+  "cSpell.enabledLanguageIds": [
+    "asciidoc",
+    "c",
+    "cpp",
+    "csharp",
+    "css",
+    "git-commit",
+    "go",
+    "handlebars",
+    "html",
+    "jade",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "latex",
+    "less",
+    "markdown",
+    "php",
+    "plaintext",
+    "pub",
+    "python",
+    "restructuredtext",
+    "rust",
+    "scss",
+    "text",
+    "typescript",
+    "typescriptreact",
+    "yml"
+  ],
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "window.restoreWindows": "none"
+}

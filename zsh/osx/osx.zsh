@@ -3,14 +3,14 @@
 export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 export GIT_EDITOR='code --wait --new-window'
 export BUNDLER_EDITOR='code -a'
-export EDITOR='subl --wait'
-export LESSEDIT='mate -l %lm %f'
+export EDITOR='code'
 
 # Use OS X version of SSH with agent forwarding
 alias ssh='/usr/bin/ssh -A'
 alias scp='/usr/bin/scp'
 alias sftp='/usr/bin/sftp'
 alias vim='mvim -v'
+alias wo='work on'
 
 if which hub &> /dev/null
 then
@@ -39,10 +39,13 @@ esac
 
 
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export GOPATH=~/Warmdot/go
+export GOPATH=~/Work/go
 export PATH=$PATH:$GOPATH/bin
 
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/
 
 ulimit -n 4096
 
-eval "$(work init -)"
+if which work > /dev/null 2>&1; then
+  eval "$(work init -)"
+fi

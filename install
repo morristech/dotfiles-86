@@ -1,8 +1,82 @@
 #!/usr/bin/env zsh
 
+indent() { sed 's/^/   /'; }
+
+brewfile() {
+  brew bundle --file=$1 --noupdate | indent
+}
+
+echo "🍺 homebrew"
+
+if ! which brew > /dev/null 2>&1; then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  brew tap Homebrew/bundle
+fi
+
+brewfile Brewfile
+
+echo "🔗 Linking dotfiles"
+
 for found in ~/.dotfiles/dotfiles/*; do
-  ln -fs $found ~/.$found:t
+  if [[ ! -a $HOME/.$found:t ]]; then
+    ln -fs $found $HOME/.$found:t
+  fi
 done
 
-mkdir -p ~/.ssh 
-ln -fs ~/.dotfiles/ssh/authorized_keys ~/.ssh/authorized_keys
+echo "🍏 Setting OS X defaults"
+
+defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add "Zoom" "@^z"
+
+defaults write com.apple.dock 'orientation' -string 'left'
+defaults write com.apple.dock 'autohide' -int 1
+defaults write com.apple.dock 'show-recents' -int 0
+defaults write com.apple.dock 'tilesize' -int 45
+
+killall Dock
+
+if [ ! -f ~/.cargo/bin/rustup ]; then
+  echo "🔧 Installing rust"
+  echo
+  curl https://sh.rustup.rs -sSf > /tmp/rust-install
+  chmod +x /tmp/rust-install
+  /tmp/rust-install -y 2>&1 | indent
+  echo
+else
+  echo "🔧 Rust already installed"
+fi
+
+echo "💎 Setting up rbenv"
+
+mkdir -p ~/.rbenv
+echo "bundler\npuma" > ~/.rbenv/default-gems
+
+if ! pgrep 'puma-dev' > /dev/null 2>&1; then
+  echo "🐱 Setting up puma-dev"
+
+  sudo puma-dev -setup
+  puma-dev -install
+else
+  echo "🐱 Puma-dev already running"
+fi
+
+echo "💻 Setting up VS Code"
+
+for found in ~/.dotfiles/vscode/*; do
+  rm -f "$HOME/Library/Application Support/Code/User/$found:t"
+  ln -fs $found "$HOME/Library/Application Support/Code/User/$found:t"
+done
+
+# Can list extensions with code --list-extensions
+
+code --install-extension anseki.vscode-color
+code --install-extension bungcip.better-toml
+code --install-extension eamodio.gitlens
+code --install-extension file-icons.file-icons
+code --install-extension ms-vscode.Go
+code --install-extension msjsdiag.debugger-for-chrome
+code --install-extension rust-lang.rust
+code --install-extension sleistner.vscode-fileutils
+code --install-extension streetsidesoftware.code-spell-checker
+
+# mkdir -p ~/.ssh
+# ln -fs ~/.dotfiles/ssh/authorized_keys ~/.ssh/authorized_keys

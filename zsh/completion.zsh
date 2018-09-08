@@ -7,6 +7,6 @@ if [[ -f $HOME/.ssh/known_hosts ]]; then
   # them for completions in ssh, scp and sftp commands.
 
   local knownhosts
-  knownhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} ) 
+  knownhosts=( ${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*} )
   zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
 fi
