@@ -9,7 +9,6 @@ export EDITOR='code'
 alias ssh='/usr/bin/ssh -A'
 alias scp='/usr/bin/scp'
 alias sftp='/usr/bin/sftp'
-alias vim='mvim -v'
 alias wo='work on'
 
 if which hub &> /dev/null
@@ -25,7 +24,6 @@ autoload -U ~/.dotfiles/zsh/osx/functions/*(:t)
 fpath=(/usr/local/share/zsh/site-functions $fpath)
 autoload -U /usr/local/share/zsh/site-functions/*(:t)
 
-
 localhost() {
   sudo dscl localhost -create /Local/Default/Hosts/$1 IPAddress 127.0.0.1
   echo "Added $1 at address 127.0.0.1"
@@ -37,6 +35,6 @@ export PATH=$PATH:$GOPATH/bin
 
 ulimit -n 4096
 
-if which work > /dev/null 2>&1; then
+if test $(which work); then
   eval "$(work init -)"
 fi

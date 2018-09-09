@@ -9,12 +9,18 @@ brew "work"
 
 brew "git"
 brew "curl"
+brew "wget"
+brew "ctags"
 brew "zsh"
+brew "fish"
 brew "readline"
+brew "jsonpp"
+brew "get_iplayer"
 
 brew "rbenv"
 brew "rbenv-default-gems"
 brew "ruby-build"
+brew "ant"
 cask "java"
 brew "leiningen"
 brew "go"
@@ -24,6 +30,7 @@ brew "node"
 brew "yarn"
 brew "elixir"
 brew "elm"
+brew "ghc"
 
 brew "puma/puma/puma-dev"
 # Disabled until xcode 10.0 available easily
@@ -42,6 +49,7 @@ cask "docker"
 cask "snagit"
 cask "dropbox"
 cask "viscosity"
+cask "dash"
 
 tap "homebrew/cask-fonts"
 
@@ -58,4 +66,6 @@ cask "font-hack"
 
 # mas not working on mojave currently
 # mas "Bear", id: 1091189122
+# mas "Xcode", id: 497799835
 # mas "1Password", id: 1333542190
+# mas "1Blocker", id: 1107421413
