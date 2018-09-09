@@ -12,15 +12,25 @@ brew "curl"
 brew "zsh"
 brew "readline"
 
-brew "puma/puma/puma-dev"
-brew "mysql"
-
 brew "rbenv"
 brew "rbenv-default-gems"
 brew "ruby-build"
+cask "java"
 brew "leiningen"
 brew "go"
-cask "java"
+brew "typescript"
+brew "python"
+brew "node"
+brew "yarn"
+brew "elixir"
+brew "elm"
+
+brew "puma/puma/puma-dev"
+# Disabled until xcode 10.0 available easily
+#brew "nginx", args: [ "with-passenger" ]
+
+brew "mysql"
+brew "postgresql"
 
 cask "google-chrome"
 cask "1password"
@@ -42,11 +52,9 @@ cask "font-roboto-mono"
 cask "font-roboto-slab"
 cask "font-karla"
 cask "font-lora"
-cask "font-ubuntu"
 cask "font-fira-sans"
 cask "font-fira-code"
-cask "font-source-sans-pro"
-cask "font-ibm-plex"
+cask "font-hack"
 
 # mas not working on mojave currently
 # mas "Bear", id: 1091189122

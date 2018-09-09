@@ -26,7 +26,7 @@
     "dummy/path/to/test/**": true
   },
   "editor.fontSize": 15,
-  "editor.fontFamily": "Monaco",
+  "editor.fontFamily": "Fira Code",
   "editor.cursorStyle": "line",
   "editor.lineNumbers": "off",
   "editor.tabSize": 2,
@@ -157,5 +157,6 @@
   "workbench.colorTheme": "Visual Studio Dark",
   "files.associations": {
     "Brewfile": "ruby"
-  }
+  },
+  "editor.fontLigatures": true
 }
