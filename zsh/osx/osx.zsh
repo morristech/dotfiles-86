@@ -31,12 +31,6 @@ localhost() {
   echo "Added $1 at address 127.0.0.1"
 }
 
-case $OSTYPE in
-  darwin10*)
-		export ARCHFLAGS="-arch x86_64"
-  ;;;
-esac
-
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export GOPATH=~/Work/go
 export PATH=$PATH:$GOPATH/bin
