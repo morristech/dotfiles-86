@@ -54,7 +54,7 @@ install_brewfile() {
     brew tap Homebrew/bundle
   fi
 
-  brewfile Brewfile
+  brew bundle --file=$HOME/.dotfiles/Brewfile --noupdate | indent
 }
 
 install_rust() {
@@ -71,7 +71,7 @@ install_rust() {
 }
 
 setup_shell() {
-  echo "🦐 Setup shell"
+  echo "🐚 Setup shell"
   local shell="/usr/local/bin/fish"
 
   if ! test $(grep $shell /etc/shells); then
