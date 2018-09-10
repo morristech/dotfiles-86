@@ -1,9 +1,0 @@
-if [[ -a bin/rails ]]; then
-  bin/rails console $*
-elif [[ -a script/rails ]]; then
-  ruby script/rails console $*
-elif [[ -a script/console ]]; then
-  ruby script/console $*
-else
-  echo "None of bin/rails, script/rails or script/console found. Maybe this isn't a rails project?"
-fi

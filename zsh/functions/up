@@ -1,3 +1,0 @@
-ref=$(git rev-parse HEAD)
-echo $ref
-git pull && bundle install

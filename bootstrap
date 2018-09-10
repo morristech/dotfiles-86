@@ -8,15 +8,21 @@ if test ! $(which fish); then
   brew install fish
 fi
 
-if test ! $(which greadfile); then
-  brew install coreutils
-fi
-
 mkdir -p $HOME/config/fish
 ln -Fs $HOME/.dotfiles/config/fish/config.fish $HOME/.config/fish/config.fish
 rm $HOME/.config/fish/functions
 ln -Fs $HOME/.dotfiles/config/fish/functions $HOME/.config/fish/functions
 
-DOTFILES_BOOTSTRAP=true fish
+shell="/usr/local/bin/fish"
+
+if test ! $(grep $shell /etc/shells); then
+  sudo bash -c "echo $shell >> /etc/shells"
+fi
+
+if [[ ! $SHELL = $shell ]]; then
+  chsh -s $shell
+fi
+
+dotfilesInstall=true fish
 
 

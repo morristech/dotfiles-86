@@ -1,8 +1,0 @@
-for i in "$@"; do
-  if [[ $i == *.* ]]; then
-    mkdir -p $i:h
-    touch $i
-  else
-    mkdir -p $i:h
-  fi
-done;
