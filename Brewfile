@@ -39,17 +39,25 @@ brew "puma/puma/puma-dev"
 brew "mysql"
 brew "postgresql"
 
-cask "google-chrome"
-cask "1password"
-cask "alfred"
-cask "spotify"
-cask "visual-studio-code"
-cask "encryptme"
-cask "docker"
-cask "snagit"
-cask "dropbox"
-cask "viscosity"
-cask "dash"
+unless ENV["DOTFILES_SKIP_APPS"] == "1"
+  cask "google-chrome"
+  cask "1password"
+  cask "alfred"
+  cask "spotify"
+  cask "visual-studio-code"
+  cask "encryptme"
+  cask "docker"
+  cask "snagit"
+  cask "dropbox"
+  cask "viscosity"
+  cask "dash"
+
+  # mas not working on mojave currently
+  # mas "Bear", id: 1091189122
+  # mas "Xcode", id: 497799835
+  # mas "1Password", id: 1333542190
+  # mas "1Blocker", id: 1107421413
+end
 
 tap "homebrew/cask-fonts"
 
@@ -63,9 +71,3 @@ cask "font-lora"
 cask "font-fira-sans"
 cask "font-fira-code"
 cask "font-hack"
-
-# mas not working on mojave currently
-# mas "Bear", id: 1091189122
-# mas "Xcode", id: 497799835
-# mas "1Password", id: 1333542190
-# mas "1Blocker", id: 1107421413
