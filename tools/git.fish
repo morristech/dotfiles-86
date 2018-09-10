@@ -1,3 +1,6 @@
+link $dotfilePath/config/gitconfig $HOME/.gitconfig
+link $dotfilePath/config/gitignore $HOME/.gitignore
+
 set --export GIT_EDITOR "code --wait --new-window"
 
 alias s='git status -sb'

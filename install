@@ -6,20 +6,6 @@ brewfile() {
   brew bundle --file=$1 --noupdate | indent
 }
 
-link_dotfiles() {
-  echo "🔗 Linking dotfiles"
-
-  for found in ~/.dotfiles/dotfiles/*; do
-    if [[ ! -a $HOME/.$found:t ]]; then
-      ln -fs $found $HOME/.$found:t
-    fi
-  done
-
-  mkdir -p $HOME/.config/fish
-  ln -fs $HOME/.dotfiles/fish/config.fish $HOME/.config/fish/config.fish
-  ln -fs $HOME/.dotfiles/fish/functions $HOME/.config/fish/functions
-}
-
 write_defaults() {
   echo "🍏 Setting OS X defaults"
 
@@ -115,11 +101,6 @@ install_vscode_extension() {
 setup_vscode() {
   echo "💻 Setting up VS Code"
 
-  for found in ~/.dotfiles/vscode/*; do
-    rm -f "$HOME/Library/Application Support/Code/User/$found:t"
-    ln -fs $found "$HOME/Library/Application Support/Code/User/$found:t"
-  done
-
   # Can list extensions with code --list-extensions
   install_vscode_extension anseki.vscode-color
   install_vscode_extension bungcip.better-toml
@@ -154,7 +135,6 @@ install_shipshape() {
 # sudo softwareupdate -iva
 # xcode-select --install
 
-link_dotfiles
 write_defaults
 install_brewfile
 setup_shell

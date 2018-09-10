@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if test ! $(which brew); then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+if test ! $(which fish); then
+  brew install fish
+fi
+
+if test ! $(which greadfile); then
+  brew install coreutils
+fi
+
+mkdir -p $HOME/config/fish
+ln -Fs $HOME/.dotfiles/config/fish/config.fish $HOME/.config/fish/config.fish
+rm $HOME/.config/fish/functions
+ln -Fs $HOME/.dotfiles/config/fish/functions $HOME/.config/fish/functions
+
+DOTFILES_BOOTSTRAP=true fish
+
+
