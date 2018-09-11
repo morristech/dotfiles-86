@@ -1,6 +1,6 @@
-if set -q dotfilesInstall
+if dotfiles-is-installing
   if not test -f ~/.cargo/bin/rustup
-    echo "🔧 Installing rust"
+    dotfiles-log "🔧 Installing rust"
     echo
     curl https://sh.rustup.rs -sSf > /tmp/rust-install
     chmod +x /tmp/rust-install
@@ -8,6 +8,6 @@ if set -q dotfilesInstall
     rm /tmp/rust-install
     echo
   else
-    echo "🔧 Rust already installed"
+    dotfiles-log "🔧 Rust already installed"
   end
 end

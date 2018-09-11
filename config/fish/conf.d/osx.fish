@@ -1,5 +1,5 @@
-if set -q dotfilesInstall
-  echo "🍏 Setting OS X defaults"
+if dotfiles-is-installing
+  dotfiles-log "🍏 Setting OS X defaults"
 
   defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add "Zoom" "@^z"
 

@@ -1,5 +1,5 @@
-if set -q dotfilesInstall
-  echo "🚢 Installing shipshape"
+if dotfiles-is-installing
+  dotfiles-log "🚢 Installing shipshape"
 
   set shipshapePath $HOME/37s/ops/shipshape
 

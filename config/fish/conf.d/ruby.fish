@@ -1,9 +1,9 @@
-if set -q dotfilesInstall
-  echo "💎 Setting up rbenv"
+if dotfiles-is-installing
+  dotfiles-log "💎 Setting up rbenv"
   set rubyVersion "2.5.1"
 
   mkdir -p ~/.rbenv
-  echo "bundler\npuma" > ~/.rbenv/default-gems
+  dotfiles-log "bundler\npuma" > ~/.rbenv/default-gems
   rbenv install $rubyVersion --skip-existing
   rbenv global $rubyVersion
 end

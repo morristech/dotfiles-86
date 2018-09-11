@@ -1,5 +1,5 @@
-if set -q dotfilesInstall
-  echo "💻 Setting up VS Code"
+if dotfiles-is-installing
+  dotfiles-log "💻 Setting up VS Code"
 
   # Can list extensions with code --list-extensions
   code --install-extension anseki.vscode-color

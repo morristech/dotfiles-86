@@ -1,10 +1,10 @@
-if set -q dotfilesInstall
+if dotfiles-is-installing
   if not pgrep -f 'puma-dev' > /dev/null
-    echo "🐱 Setting up puma-dev"
+    dotfiles-log "🐱 Setting up puma-dev"
 
     sudo puma-dev -setup
     puma-dev -install
   else
-    echo "🐱 Puma-dev already running"
+    dotfiles-log "🐱 Puma-dev already running"
   end
 end
