@@ -51,6 +51,8 @@ unless ENV["DOTFILES_SKIP_APPS"] == "1"
   cask "dropbox"
   cask "viscosity"
   cask "dash"
+  cask "sketch"
+  cask "whatsapp"
 
   # mas not working on mojave currently
   # mas "Bear", id: 1091189122

@@ -4,9 +4,10 @@ if test ! $(which brew); then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-if test ! $(which fish); then
-  brew install fish
-fi
+brew tap Homebrew/bundle
+brew bundle
+
+cp -f $HOME/.dotfiles/config/fish/share/config.fish $(realpath /usr/local/etc/fish/config.fish)
 
 mkdir -p $HOME/config/fish
 ln -Fs $HOME/.dotfiles/config/fish/config.fish $HOME/.config/fish/config.fish
@@ -24,5 +25,3 @@ if [[ ! $SHELL = $shell ]]; then
 fi
 
 dotfilesInstall=true fish
-
-
