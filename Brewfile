@@ -1,3 +1,7 @@
+def mojave?
+  `sw_vers`.match /\s10\.14/
+end
+
 tap "puma/puma"
 tap "basecamp/private", "git@github.com:basecamp/homebrew-private.git"
 
@@ -38,26 +42,34 @@ brew "puma/puma/puma-dev"
 brew "mysql"
 brew "postgresql"
 
-unless ENV["DOTFILES_SKIP_APPS"] == "1"
-  cask "google-chrome"
-  cask "1password"
-  cask "alfred"
-  cask "spotify"
-  cask "visual-studio-code"
-  cask "encryptme"
-  cask "docker"
-  cask "snagit"
-  cask "dropbox"
-  cask "viscosity"
-  cask "dash"
-  cask "sketch"
-  cask "whatsapp"
+cask "google-chrome"
+cask "1password"
+cask "alfred"
+cask "spotify"
+cask "visual-studio-code"
+cask "encryptme"
+cask "docker"
+cask "snagit"
+cask "dropbox"
+cask "viscosity"
+cask "dash"
+cask "sketch"
+cask "whatsapp"
+cask "makemkv"
 
-  # mas not working on mojave currently
-  # mas "Bear", id: 1091189122
-  # mas "Xcode", id: 497799835
-  # mas "1Password", id: 1333542190
-  # mas "1Blocker", id: 1107421413
+# only nightly version of little snitch working on mojave
+if mojave?
+  cask "little-snitch-nightly"
+else
+  cask "little-snitch"
+end
+
+# mas not working on mojave currently
+unless mojave?
+  mas "Bear", id: 1091189122
+  mas "Xcode", id: 497799835
+  mas "1Password", id: 1333542190
+  mas "1Blocker", id: 1107421413
 end
 
 tap "homebrew/cask-fonts"
