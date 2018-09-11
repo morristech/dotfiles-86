@@ -7,8 +7,6 @@ fi
 brew tap Homebrew/bundle
 brew bundle --no-upgrade
 
-cp -f $HOME/.dotfiles/config/fish/share/config.fish $(realpath /usr/local/etc/fish/config.fish)
-
 mkdir -p $HOME/config/fish
 ln -Fs $HOME/.dotfiles/config/fish/config.fish $HOME/.config/fish/config.fish
 rm $HOME/.config/fish/functions
