@@ -1,5 +1,5 @@
-link $dotfilePath/config/gitconfig $HOME/.gitconfig
-link $dotfilePath/config/gitignore $HOME/.gitignore
+dotfiles-link "$HOME/.dotfiles/config/gitconfig" "$HOME/.gitconfig"
+dotfiles-link "$HOME/.dotfiles/config/gitignore" "$HOME/.gitignore"
 
 set --export GIT_EDITOR "code --wait --new-window"
 
