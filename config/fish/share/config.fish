@@ -13,4 +13,4 @@
 #   ...
 # end
 
-set PATH /usr/local/sbin /usr/local/bin $PATH
+set PATH $PATH /usr/local/sbin
