@@ -11,6 +11,12 @@ end
 dotfiles-link $HOME/.dotfiles/config/irbrc $HOME/.irbrc
 dotfiles-link $HOME/.dotfiles/config/railsrc $HOME/.railsrc
 
-if test -d $HOME/.rbenv/shims
-  set PATH $HOME/.rbenv/shims $PATH
-end
+set --export BUNDLE_PATH ".bundle/gems"
+set --export BUNDLE_BIN  ".bundle/bin"
+set --export BUNDLER_EDITOR "code -a"
+set --export UNSPRUNG 1
+
+set PATH $HOME/.rbenv/shims $PATH
+set PATH ./.bundle/../bin $BUNDLE_BIN $PATH
+
+alias bi='bundle install'
