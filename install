@@ -8,10 +8,10 @@ brew tap Homebrew/bundle
 brew bundle --no-upgrade
 
 mkdir -p $HOME/config/fish
-ln -Fs $HOME/.dotfiles/config/fish/config.fish $HOME/.config/fish/config.fish
-ln -Fs $HOME/.dotfiles/config/fish/functions   $HOME/.config/fish/functions
-ln -Fs $HOME/.dotfiles/config/fish/completions $HOME/.config/fish/completions
-ln -Fs $HOME/.dotfiles/config/fish/conf.d      $HOME/.config/fish/conf.d
+ln -nFs $HOME/.dotfiles/config/fish/config.fish $HOME/.config/fish/config.fish
+ln -nFs $HOME/.dotfiles/config/fish/functions   $HOME/.config/fish/functions
+ln -nFs $HOME/.dotfiles/config/fish/completions $HOME/.config/fish/completions
+ln -nFs $HOME/.dotfiles/config/fish/conf.d      $HOME/.config/fish/conf.d
 
 shell="/usr/local/bin/fish"
 
