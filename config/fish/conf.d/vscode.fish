@@ -1,17 +1,21 @@
+function __vscode_install_extension
+  yes 1 | code --install-extension $argv[1]
+end
+
 if dotfiles-is-installing
   dotfiles-log "💻 Setting up VS Code"
 
   # Can list extensions with code --list-extensions
-  code --install-extension anseki.vscode-color
-  code --install-extension bungcip.better-toml
-  code --install-extension eamodio.gitlens
-  code --install-extension file-icons.file-icons
-  code --install-extension ms-vscode.Go
-  code --install-extension msjsdiag.debugger-for-chrome
-  code --install-extension rust-lang.rust
-  code --install-extension sleistner.vscode-fileutils
-  code --install-extension streetsidesoftware.code-spell-checker
-  code --install-extension skyapps.fish-vscode
+  __vscode_install_extension anseki.vscode-color
+  __vscode_install_extension bungcip.better-toml
+  __vscode_install_extension eamodio.gitlens
+  __vscode_install_extension file-icons.file-icons
+  __vscode_install_extension ms-vscode.Go
+  __vscode_install_extension msjsdiag.debugger-for-chrome
+  __vscode_install_extension rust-lang.rust
+  __vscode_install_extension sleistner.vscode-fileutils
+  __vscode_install_extension streetsidesoftware.code-spell-checker
+  __vscode_install_extension skyapps.fish-vscode
 end
 
 set --export EDITOR "code -w"
