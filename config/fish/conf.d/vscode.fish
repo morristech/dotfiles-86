@@ -18,7 +18,7 @@ if dotfiles-is-installing
   __vscode_install_extension skyapps.fish-vscode
 end
 
-set --export EDITOR "code -w"
+set --export EDITOR "code"
 
 dotfiles-link "$HOME/.dotfiles/config/vscode/settings.json"    "$HOME/Library/Application Support/Code/User/settings.json"
 dotfiles-link "$HOME/.dotfiles/config/vscode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"

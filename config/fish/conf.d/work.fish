@@ -1,1 +1,1 @@
-set WORK_EDITOR "code"
+set WORK_EDITOR "code --new-window"

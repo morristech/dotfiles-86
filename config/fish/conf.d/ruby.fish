@@ -13,7 +13,7 @@ dotfiles-link $HOME/.dotfiles/config/railsrc $HOME/.railsrc
 
 set --export BUNDLE_PATH ".bundle/gems"
 set --export BUNDLE_BIN  ".bundle/bin"
-set --export BUNDLER_EDITOR "code -a"
+set --export BUNDLER_EDITOR "code --add"
 set --export UNSPRUNG 1
 
 set PATH $HOME/.rbenv/shims $PATH
