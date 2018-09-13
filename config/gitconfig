@@ -18,6 +18,6 @@
 [diff]
 	wordregex = [[:alnum:]]+|[^[:space:]]
 [credential]
-	helper = cache
+	helper = osxkeychain
 [rebase]
 	autostash = true
