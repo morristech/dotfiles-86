@@ -19,4 +19,4 @@ set --export UNSPRUNG 1
 set PATH $HOME/.rbenv/shims $PATH
 set PATH ./.bundle/../bin $BUNDLE_BIN $PATH
 
-alias bi='bundle install'
+abbr --add bi bundle install

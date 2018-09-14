@@ -1,2 +1,2 @@
-alias fl='flashlight'
-alias flt='flashlight --tail'
+abbr --add fl  flashlight
+abbr --add flt flashlight --tail
