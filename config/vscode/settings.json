@@ -150,9 +150,10 @@
     "typescriptreact",
     "yml"
   ],
+  "git.inputValidation": "off",
   "[git-commit]": {
     "editor.rulers": [
-      72
+      80
     ]
   },
   "gitlens.advanced.messages": {
