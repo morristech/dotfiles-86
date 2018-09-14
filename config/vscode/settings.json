@@ -150,6 +150,11 @@
     "typescriptreact",
     "yml"
   ],
+  "[git-commit]": {
+    "editor.rulers": [
+      72
+    ]
+  },
   "gitlens.advanced.messages": {
     "suppressShowKeyBindingsNotice": true
   },
