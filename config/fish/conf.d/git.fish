@@ -4,6 +4,6 @@ dotfiles-link "$HOME/.dotfiles/config/gitignore" "$HOME/.gitignore"
 set --export GIT_EDITOR "code --wait --new-window"
 set --export GITHUB_TOKEN (github-access-token)
 
-alias s='git status -sb'
-alias d='git diff --word-diff --color-words'
-alias c='git diff --cached --word-diff --color-words'
+abbr --add s 'git status -sb'
+abbr --add d 'git diff --word-diff --color-words'
+abbr --add c 'git diff --cached --word-diff --color-words'
