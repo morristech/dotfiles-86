@@ -12,12 +12,14 @@ brew "flashlight"
 brew "work"
 
 brew "git"
+brew "hub"
 brew "curl"
 brew "wget"
 brew "ctags"
 brew "fish"
 brew "readline"
 brew "jsonpp"
+brew "tree"
 brew "get_iplayer"
 
 brew "rbenv"
@@ -36,8 +38,7 @@ brew "elm"
 brew "ghc"
 
 brew "puma/puma/puma-dev"
-# Disabled until xcode 10.0 available easily
-#brew "nginx", args: [ "with-passenger" ]
+brew "nginx", args: [ "with-passenger" ]
 
 brew "mysql"
 brew "postgresql"
@@ -56,6 +57,7 @@ cask "dash"
 cask "sketch"
 cask "whatsapp"
 cask "makemkv"
+cask "firefox-developer-edition"
 
 # only nightly version of little snitch working on mojave
 if mojave?
