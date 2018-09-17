@@ -22,6 +22,7 @@ brew "jsonpp"
 brew "tree"
 brew "get_iplayer"
 brew "httpie"
+brew "gcal"
 
 brew "rbenv"
 brew "rbenv-default-gems"
