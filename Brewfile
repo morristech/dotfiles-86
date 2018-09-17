@@ -58,7 +58,7 @@ cask "dash"
 cask "sketch"
 cask "whatsapp"
 cask "makemkv"
-cask "firefox-developer-edition"
+cask "homebrew/cask-versions/firefox-developer-edition"
 
 # only nightly version of little snitch working on mojave
 if mojave?
