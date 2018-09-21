@@ -23,6 +23,8 @@ brew "tree"
 brew "get_iplayer"
 brew "httpie"
 brew "gcal"
+brew "peco"
+brew "duti"
 
 brew "rbenv"
 brew "rbenv-default-gems"
