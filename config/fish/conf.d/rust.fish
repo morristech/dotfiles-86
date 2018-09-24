@@ -11,3 +11,5 @@ if dotfiles-is-installing
     dotfiles-log "🔧 Rust already installed"
   end
 end
+
+set PATH ~/.cargo/bin $PATH
