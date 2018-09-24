@@ -1,6 +1,4 @@
 
-set PATH $PATH /usr/local/sbin
-
 abbr --add ls 'ls -ahGl'
 abbr --add cal 'gcal --starting-day=1 .'
 
