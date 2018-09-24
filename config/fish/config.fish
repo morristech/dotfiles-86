@@ -1,4 +1,3 @@
-
 abbr --add ls 'ls -ahGl'
 abbr --add cal 'gcal --starting-day=1 .'
 
