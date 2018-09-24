@@ -166,5 +166,6 @@
   "files.associations": {
     "Brewfile": "ruby"
   },
-  "editor.fontLigatures": true
+  "editor.fontLigatures": true,
+  "window.closeWhenEmpty": true
 }
