@@ -7,10 +7,6 @@ tap "basecamp/private", "git@github.com:basecamp/homebrew-private.git"
 
 cask_args appdir: "/Applications"
 
-brew "37"
-brew "flashlight"
-brew "work"
-
 brew "fish"
 brew "git"
 brew "hub"
@@ -20,11 +16,21 @@ brew "ctags"
 brew "readline"
 brew "jsonpp"
 brew "tree"
-brew "get_iplayer"
 brew "httpie"
 brew "gcal"
 brew "peco"
 brew "duti"
+brew "ag"
+brew "mycli"
+brew "htop"
+brew "bat"
+brew "fd"
+brew "tldr"
+brew "ncdu"
+
+brew "37"
+brew "flashlight"
+brew "work"
 
 brew "rbenv"
 brew "rbenv-default-gems"
@@ -47,6 +53,8 @@ brew "nginx", args: [ "with-passenger" ]
 brew "mysql"
 brew "postgresql"
 
+brew "get_iplayer"
+
 cask "google-chrome"
 cask "1password"
 cask "alfred"
@@ -61,6 +69,7 @@ cask "dash"
 cask "sketch"
 cask "whatsapp"
 cask "makemkv"
+cask "iterm2"
 cask "homebrew/cask-versions/firefox-developer-edition"
 
 # only nightly version of little snitch working on mojave
