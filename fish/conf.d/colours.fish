@@ -1,12 +1,13 @@
 # fish_color_normal, the default color
 
-set fish_color_normal c1e3fe
-set fish_color_command c1e3fe
+set fish_color_normal ffffff
+set fish_color_command afe0da
 set fish_color_redirection fefdd5
 set fish_color_end fefdd5
-set fish_color_param d6fcb9
+set fish_color_param f8d2a1
 set fish_color_error ffc4bd --underline
 set fish_pager_color_description fefdd5
+set fish_color_search_match --background=333333
 
 # fish_color_command, the color for commands
 # fish_color_quote, the color for quoted blocks of text
