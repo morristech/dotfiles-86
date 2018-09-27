@@ -8,12 +8,21 @@ function __fish_prompt_duration
   set_color normal
 end
 
+set __fish_prompt_host (string replace ".local" "" (hostname))
+
 function fish_prompt
   if test $CMD_DURATION -gt 1000
     echo (__fish_prompt_duration)
   end
 
-  set_color c1e3fe
+  if set -q SSH_CLIENT
+    set_color 777
+    echo -n $__fish_prompt_host
+    echo -n ' '
+    set_color f8d2a1
+  else
+    set_color afe0da
+  end
 
   echo -n '❯ '
   set_color normal
