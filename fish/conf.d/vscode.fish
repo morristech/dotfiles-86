@@ -1,9 +1,9 @@
-function __vscode_install_extension
-  yes 1 | code --install-extension $argv[1]
-end
-
 if dotfiles-is-installing
   dotfiles-log "💻 Setting up VS Code"
+
+  function __vscode_install_extension
+    yes 1 | code --install-extension $argv[1]
+  end
 
   # Can list extensions with code --list-extensions
   __vscode_install_extension anseki.vscode-color
@@ -24,5 +24,5 @@ end
 
 set --export EDITOR "code"
 
-dotfiles-link "$HOME/.dotfiles/config/vscode/settings.json"    "$HOME/Library/Application Support/Code/User/settings.json"
-dotfiles-link "$HOME/.dotfiles/config/vscode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
+dotfiles-link "$HOME/.dotfiles/vscode/settings.json"    "$HOME/Library/Application Support/Code/User/settings.json"
+dotfiles-link "$HOME/.dotfiles/vscode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
