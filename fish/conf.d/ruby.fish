@@ -8,8 +8,8 @@ if dotfiles-is-installing
   rbenv global $rubyVersion
 end
 
-dotfiles-link $HOME/.dotfiles/config/irbrc $HOME/.irbrc
-dotfiles-link $HOME/.dotfiles/config/railsrc $HOME/.railsrc
+dotfiles-link $HOME/.dotfiles/ruby/irbrc $HOME/.irbrc
+dotfiles-link $HOME/.dotfiles/ruby/railsrc $HOME/.railsrc
 
 set --export BUNDLE_PATH "~/.gems"
 set --export BUNDLE_BIN  ".bundle/bin"

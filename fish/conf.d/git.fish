@@ -1,5 +1,5 @@
-dotfiles-link "$HOME/.dotfiles/config/gitconfig" "$HOME/.gitconfig"
-dotfiles-link "$HOME/.dotfiles/config/gitignore" "$HOME/.gitignore"
+dotfiles-link "$HOME/.dotfiles/git/gitconfig" "$HOME/.gitconfig"
+dotfiles-link "$HOME/.dotfiles/git/gitignore" "$HOME/.gitignore"
 
 set --export GIT_EDITOR "code --wait --new-window"
 set --export GITHUB_TOKEN (github-access-token)

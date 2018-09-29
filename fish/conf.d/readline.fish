@@ -1,1 +1,1 @@
-dotfiles-link $HOME/.dotfiles/config/inputrc $HOME/.inputrc
+dotfiles-link $HOME/.dotfiles/readline/inputrc $HOME/.inputrc
