@@ -8,11 +8,11 @@ if dotfiles-is-installing
     ssh-keygen -t ed25519 -a 100 -f ~/.ssh/$keyName -N '' -C tom@$hostName
   end
 
-  if not grep (cat ~/.ssh/$keyName.pub) ~/.ssh/authorized_keys
+  if not grep -q (cat ~/.ssh/$keyName.pub) ~/.ssh/authorized_keys
     cat ~/.ssh/$keyName.pub >> ~/.ssh/authorized_keys
   end
 
-  if not ssh-add -L | grep (cat ~/.ssh/$keyName.pub)
+  if not ssh-add -L | grep -q (cat ~/.ssh/$keyName.pub)
     ssh-add ~/.ssh/$keyName
   end
 end
