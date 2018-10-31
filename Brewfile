@@ -70,6 +70,7 @@ cask "sketch"
 cask "whatsapp"
 cask "makemkv"
 cask "iterm2"
+cask "mumble"
 cask "homebrew/cask-versions/firefox-developer-edition"
 
 # only nightly version of little snitch working on mojave

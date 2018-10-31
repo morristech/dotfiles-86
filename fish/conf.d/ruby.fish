@@ -11,10 +11,10 @@ end
 dotfiles-link $HOME/.dotfiles/ruby/irbrc $HOME/.irbrc
 dotfiles-link $HOME/.dotfiles/ruby/railsrc $HOME/.railsrc
 
-set --export BUNDLE_PATH "~/.gems"
+# set --export BUNDLE_PATH "~/.gems"
 set --export BUNDLE_BIN  ".bundle/bin"
 set --export BUNDLER_EDITOR "code --add"
-set --export UNSPRUNG 1
+# set --export UNSPRUNG 1
 
 set PATH $HOME/.rbenv/shims $PATH
 set PATH ./.bundle/../bin $BUNDLE_BIN $PATH
