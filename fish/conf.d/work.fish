@@ -5,3 +5,5 @@ abbr --add bc3 work cd basecamp/bc3
 abbr --add hr work cd highrisehq/server
 abbr --add dot work cd tomafro/dotfiles
 abbr --add qb work cd basecamp/queenbee
+
+work update --if-needed

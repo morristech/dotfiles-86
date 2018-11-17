@@ -30,6 +30,7 @@
   "editor.cursorStyle": "line",
   "editor.lineNumbers": "off",
   "editor.useTabStops": true,
+  "editor.tabSize": 2,
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.fontFamily": "Monaco",
   "workbench.colorCustomizations": {
