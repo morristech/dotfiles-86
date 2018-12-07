@@ -5,7 +5,9 @@ function sc
     ruby script/rails console $argv
   else if test -e bin/rails
     bin/rails console $argv
+  else if test -e Gemfile
+    bundle console
   else
-    echo "None of bin/rails, script/rails, or script/console. Maybe this isn't a rails project?"
+    echo "None of bin/rails, script/rails, script/console, or a Gemfile found. Maybe this isn't a rails or ruby project?"
   end
 end
