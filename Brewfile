@@ -73,13 +73,9 @@ cask "iterm2"
 cask "mumble"
 cask "signal"
 cask "homebrew/cask-versions/firefox-developer-edition"
+cask "day-o"
 
-# only nightly version of little snitch working on mojave
-if mojave?
-  cask "homebrew/cask-versions/little-snitch-nightly"
-else
-  cask "little-snitch"
-end
+cask "little-snitch"
 
 # mas not working on mojave currently
 unless mojave?
