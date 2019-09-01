@@ -3,15 +3,18 @@ def mojave?
 end
 
 tap "puma/puma"
-tap "basecamp/private", "git@github.com:basecamp/homebrew-private.git"
 
 cask_args appdir: "/Applications", fontdir: "/Library/Fonts/"
 
 brew "fish"
+brew "coreutils"
 brew "git"
 brew "hub"
 brew "curl"
 brew "wget"
+brew "ripgrep"
+brew "fzf"
+brew "bats"
 brew "ctags"
 brew "readline"
 brew "jsonpp"
@@ -28,19 +31,15 @@ brew "fd"
 brew "tldr"
 brew "ncdu"
 
-brew "37"
-brew "flashlight"
-brew "work"
-
 brew "rbenv"
 brew "rbenv-default-gems"
 brew "ruby-build"
+brew "pyenv"
 brew "ant"
 cask "java"
 brew "leiningen"
 brew "go"
 brew "typescript"
-brew "python"
 brew "node"
 brew "yarn"
 brew "elixir"
@@ -57,6 +56,7 @@ brew "get_iplayer"
 
 cask "google-chrome"
 cask "1password"
+cask "1password-cli"
 cask "alfred"
 cask "spotify"
 cask "visual-studio-code"
@@ -74,6 +74,7 @@ cask "mumble"
 cask "signal"
 cask "homebrew/cask-versions/firefox-developer-edition"
 cask "day-o"
+cask "quicklook-json"
 
 cask "little-snitch"
 
@@ -82,7 +83,6 @@ unless mojave?
   mas "Bear", id: 1091189122
   mas "Xcode", id: 497799835
   mas "1Password", id: 1333542190
-  mas "1Blocker", id: 1107421413
 end
 
 tap "homebrew/cask-fonts"

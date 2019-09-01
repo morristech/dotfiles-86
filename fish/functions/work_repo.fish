@@ -6,7 +6,7 @@ function work_repo
       set --global work_repo_last_path "$repo"
       if git remote get-url origin > /dev/null 2>&1
         set --local origin (git remote get-url origin)
-        set --local name (string match -r "(?:git@github\.com:|https://github.com/)([^.]*)(?:\.git)?" $origin)
+        set --local name (string match -r "(?:github.com[/:])(.*?)(?:\.git)?\Z" $origin)
         set --global work_repo_last_name $name[2]
       else
         set --global work_repo_last_name (pwd)

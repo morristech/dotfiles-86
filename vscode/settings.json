@@ -1,14 +1,15 @@
 {
   "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
-    "**/.DS_Store": true,
+    ".target/*": true,
     "**/.bundle": true,
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/CVS": true,
+    "**/log": true,
     "**/node_modules": true,
     "**/tmp": true,
-    "**/log": true,
     "public/assets/**": true
   },
   "search.exclude": {
@@ -121,7 +122,6 @@
   "[rust]": {
     "editor.tabSize": 4
   },
-  "workbench.statusBar.feedback.visible": false,
   "cSpell.language": "en,en-GB",
   "cSpell.enabledLanguageIds": [
     "asciidoc",
@@ -168,5 +168,18 @@
   },
   "editor.fontLigatures": true,
   "window.closeWhenEmpty": true,
-  "ruby.format": "rubocop"
+  "extensions.autoUpdate": false,
+  "cSpell.userWords": [
+    "blitzlicht"
+  ],
+  "rust.all_features": true,
+  "rust-client.logToFile": true,
+  "todo.file.name": "*.todos",
+  "bracket-pair-colorizer-2.colors": [
+    "#ffffff",
+    "#f8d2a1",
+    "#afe0da",
+  ],
+  "bracket-pair-colorizer-2.showHorizontalScopeLine": false,
+  "bracket-pair-colorizer-2.showVerticalScopeLine": false
 }

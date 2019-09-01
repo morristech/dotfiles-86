@@ -1,9 +1,9 @@
 if dotfiles-is-installing
   dotfiles-log "💎 Setting up rbenv"
-  set rubyVersion "2.5.1"
+  set rubyVersion "2.6.2"
 
   mkdir -p ~/.rbenv
-  dotfiles-log "bundler\npuma" > ~/.rbenv/default-gems
+  echo -e "bundler\npuma" > ~/.rbenv/default-gems
   rbenv install $rubyVersion --skip-existing
   rbenv global $rubyVersion
 end
@@ -20,3 +20,4 @@ set PATH $HOME/.rbenv/shims $PATH
 set PATH ./.bundle/../bin $BUNDLE_BIN $PATH
 
 abbr --add bi bundle install
+abbr --add rt "spring stop && rails test"

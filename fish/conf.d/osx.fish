@@ -26,4 +26,7 @@ if dotfiles-is-installing
 
   # Only use UTF-8 in Terminal.app
   defaults write com.apple.terminal StringEncodings -array 4
+
+  # Use 1.1.1.1 for DNS
+  networksetup -setdnsservers Wi-Fi 1.1.1.1 1.0.0.1 2606:4700:4700::1111 2606:4700:4700::1001
 end

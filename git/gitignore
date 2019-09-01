@@ -10,3 +10,4 @@ XX106-5TY6
 /.sync
 /node_modules
 /dotfiles/bundle/cache/compact_index/*
+/.target

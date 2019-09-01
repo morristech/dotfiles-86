@@ -1,3 +1,3 @@
 function github-access-token
-	printf "host=github.com\nprotocol=https\n\n" | git credential-osxkeychain get | grep password= | string replace "password=" ""
+	printf "url=https://github.com" | git credential fill | grep password= | string replace "password=" ""
 end

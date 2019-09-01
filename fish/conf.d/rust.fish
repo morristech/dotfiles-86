@@ -12,4 +12,6 @@ if dotfiles-is-installing
   end
 end
 
+dotfiles-link $HOME/.dotfiles/cargo/config $HOME/.cargo/config
+
 set PATH ~/.cargo/bin $PATH
