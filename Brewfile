@@ -1,11 +1,8 @@
-def mojave?
-  `sw_vers`.match /\s10\.14/
-end
-
 tap "puma/puma"
 
 cask_args appdir: "/Applications", fontdir: "/Library/Fonts/"
 
+# Switched to fish as my main shell in October 2018 and haven't looked back.
 brew "fish"
 brew "coreutils"
 brew "git"
@@ -17,7 +14,8 @@ brew "fzf"
 brew "bats"
 brew "ctags"
 brew "readline"
-brew "jsonpp"
+# `jq` - json pretty-printing and querying
+brew "jq"
 brew "tree"
 brew "httpie"
 brew "gcal"
@@ -78,12 +76,9 @@ cask "quicklook-json"
 
 cask "little-snitch"
 
-# mas not working on mojave currently
-unless mojave?
-  mas "Bear", id: 1091189122
-  mas "Xcode", id: 497799835
-  mas "1Password", id: 1333542190
-end
+# mas "Bear", id: 1091189122
+# mas "Xcode", id: 497799835
+# mas "1Password", id: 1333542190
 
 tap "homebrew/cask-fonts"
 
