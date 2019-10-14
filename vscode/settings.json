@@ -1,6 +1,6 @@
 {
   "files.exclude": {
-    ".target/*": true,
+    "target/*": true,
     "**/.bundle": true,
     "**/.DS_Store": true,
     "**/.git": true,
@@ -103,12 +103,13 @@
         "scope": [
           "keyword",
           "keyword.control",
+          "storage.control",
           "storage.modifier"
         ],
         "settings": {
           "foreground": "#afe0da"
         }
-      }
+      },
     ]
   },
   "files.trimTrailingWhitespace": true,
@@ -126,6 +127,7 @@
   "cSpell.enabledLanguageIds": [
     "asciidoc",
     "c",
+    "clojure",
     "cpp",
     "csharp",
     "css",
@@ -170,7 +172,12 @@
   "window.closeWhenEmpty": true,
   "extensions.autoUpdate": false,
   "cSpell.userWords": [
-    "blitzlicht"
+    "blitzlicht",
+    "defn",
+    "figwheel",
+    "httpq",
+    "rerendering",
+    "serializer"
   ],
   "rust.all_features": true,
   "rust-client.logToFile": true,

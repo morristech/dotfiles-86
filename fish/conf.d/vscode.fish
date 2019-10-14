@@ -17,7 +17,7 @@ if dotfiles-is-installing
   __vscode_install_extension streetsidesoftware.code-spell-checker
   __vscode_install_extension skyapps.fish-vscode
 
-  for type in fish rb js clj go rs sh bash json xml yaml text textile md erb bats
+  for type in fish rb js clj go rs sh bash json xml yaml text textile md erb bats toml
     duti -s com.microsoft.VSCode .{$type} all
   end
 end

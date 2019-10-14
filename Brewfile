@@ -1,26 +1,24 @@
 tap "puma/puma"
+tap "heroku/brew"
 
 cask_args appdir: "/Applications", fontdir: "/Library/Fonts/"
 
-# Switched to fish as my main shell in October 2018 and haven't looked back.
-brew "fish"
+brew "fish" # The best shell
 brew "coreutils"
-brew "git"
-brew "hub"
+brew "readline"
 brew "curl"
 brew "wget"
+brew "httpie"
+brew "git"
+brew "hub"
 brew "ripgrep"
 brew "fzf"
 brew "bats"
 brew "ctags"
-brew "readline"
-# `jq` - json pretty-printing and querying
-brew "jq"
-brew "tree"
-brew "httpie"
-brew "gcal"
-brew "peco"
-brew "duti"
+brew "jq"   # JSON pretty-printer and processor
+brew "tree" # Displays directories as trees in the terminal
+brew "peco" # Interactive filtering tool. See: https://peco.github.io/#demo
+brew "duti" # Helps select default applications for document types on OS X
 brew "ag"
 brew "mycli"
 brew "htop"
@@ -35,6 +33,7 @@ brew "ruby-build"
 brew "pyenv"
 brew "ant"
 cask "java"
+brew "clojure"
 brew "leiningen"
 brew "go"
 brew "typescript"
