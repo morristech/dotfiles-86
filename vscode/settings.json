@@ -27,7 +27,7 @@
     "dummy/path/to/test/**": true
   },
   "editor.fontSize": 15,
-  "editor.fontFamily": "Fira Code",
+  "editor.fontFamily": "FiraCode-Retina",
   "editor.cursorStyle": "line",
   "editor.lineNumbers": "off",
   "editor.useTabStops": true,
@@ -166,7 +166,8 @@
   "window.restoreWindows": "none",
   "workbench.colorTheme": "Visual Studio Dark",
   "files.associations": {
-    "Brewfile": "ruby"
+    "Brewfile": "ruby",
+    "*.mustache": "html"
   },
   "editor.fontLigatures": true,
   "window.closeWhenEmpty": true,
@@ -174,6 +175,7 @@
   "cSpell.userWords": [
     "blitzlicht",
     "defn",
+    "farillio",
     "figwheel",
     "httpq",
     "rerendering",
@@ -188,5 +190,28 @@
     "#afe0da",
   ],
   "bracket-pair-colorizer-2.showHorizontalScopeLine": false,
-  "bracket-pair-colorizer-2.showVerticalScopeLine": false
+  "bracket-pair-colorizer-2.showVerticalScopeLine": false,
+  "cSpell.enabled": false,
+  "calva.fmt.formatAsYouType": false,
+  "calva.highlight.bracketColors": [
+    "#FFFF00",
+    "#FF9AA2",
+    "#FFB7B2",
+    "#FFDAC1",
+    "#E2F0CB",
+    "#B5EAD7",
+    "#C7CEEA",
+    "#B5EAD7",
+    "#E2F0CB",
+    "#FFDAC1",
+    "#FFB7B2",
+    "#FF9AA2"
+  ],
+  "task.autoDetect": "off",
+  "calva.prettyPrintingOptions": {
+    "enabled": false,
+    "printEngine": "pprint",
+    "width": 120
+  },
+  "calva.paredit.defaultKeyMap": "original"
 }

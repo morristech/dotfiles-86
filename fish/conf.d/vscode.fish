@@ -2,7 +2,7 @@ if dotfiles-is-installing
   dotfiles-log "💻 Setting up VS Code"
 
   function __vscode_install_extension
-    yes 1 | code --install-extension --force $argv[1]
+    yes 1 | code --install-extension $argv[1]
   end
 
   # Can list extensions with code --list-extensions
@@ -17,7 +17,7 @@ if dotfiles-is-installing
   __vscode_install_extension streetsidesoftware.code-spell-checker
   __vscode_install_extension skyapps.fish-vscode
 
-  for type in fish rb js clj go rs sh bash json xml yaml text textile md erb bats toml
+  for type in fish rb js clj go rs sh bash json xml yaml text textile md erb bats toml rake
     duti -s com.microsoft.VSCode .{$type} all
   end
 end

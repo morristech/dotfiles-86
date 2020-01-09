@@ -11,4 +11,5 @@ XX106-5TY6
 /node_modules
 /dotfiles/bundle/cache/compact_index/*
 /.target
-/*.local.*
+.warmdot
+*.local.*

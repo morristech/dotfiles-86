@@ -3,6 +3,7 @@
 set fish_color_normal ffffff
 set fish_color_command afe0da
 set fish_color_redirection fefdd5
+set fish_color_quote f8d2a1
 set fish_color_end fefdd5
 set fish_color_param f8d2a1
 set fish_color_error ffc4bd --underline
